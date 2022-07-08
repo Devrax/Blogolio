@@ -11,7 +11,7 @@ export const timeAgo = (time: string | Date) => {
 		{ timeStep, time: t } =
 			resultAbs / 365 >= 1
 				? { timeStep: "year", time: resultAbs / 365 }
-				: resultAbs / 29 >= 1
+				: resultAbs / 30 >= 1
 				? { timeStep: "month", time: resultAbs / 29 }
 				: resultAbs / 1 >= 1
 				? { timeStep: "day", time: resultAbs / 1 }
@@ -20,7 +20,7 @@ export const timeAgo = (time: string | Date) => {
 				: { timeStep: "minute", time: resultAbs * 24 * 60 };
 
 	return relativeTimeFormatter.format(
-		Math.floor(-t),
+		Math.ceil(-t),
 		timeStep as Intl.RelativeTimeFormatUnit
 	);
 };
