@@ -1,3 +1,5 @@
+import { GithubUserRepo } from "./GithubUserRepo.ts";
+
 export interface GithubUser {
 	login: string;
 	id: number;
@@ -31,4 +33,8 @@ export interface GithubUser {
 	following: number;
 	created_at: Date;
 	updated_at: Date;
+}
+
+export interface GithubUserData extends GithubUser {
+	repos: GithubUserRepo[];
 }

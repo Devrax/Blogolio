@@ -1,0 +1,84 @@
+.js-bg {
+	background: linear-gradient(transparent -50%, rgb(30 41 59) 75%),
+		60% 100% / 115% 243% no-repeat url("../images/js-logo.jpg");
+}
+
+.text-shadow {
+	text-shadow: 1px 1px 1px black;
+}
+
+.ext-typescript::before,
+.ext-javascript::before,
+.ext-vue::before,
+.ext-swift::before,
+.ext-css::before,
+.ext-html::before,
+.ext-c\+\+::before,
+.ext-solidity::before {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	font-size: 25px;
+	opacity: 0.5;
+}
+
+.ext-typescript::before {
+	content: "TS";
+	color: white;
+	background-color: #3178c6;
+	box-shadow: 40px 50px 50px 100px #3178c6;
+}
+
+.ext-javascript::before {
+	content: "JS";
+	color: black;
+	background-color: #f8da59;
+	box-shadow: 40px 50px 50px 100px #f8da59;
+}
+
+.ext-vue::before {
+	content: "vue";
+	color: white;
+	background-color: #41b883;
+	box-shadow: 40px 50px 50px 100px #41b883;
+}
+
+.ext-swift::before {
+	content: "swift";
+	color: white;
+	background-color: #f05138;
+	box-shadow: 40px 50px 50px 100px #f05138;
+}
+
+.ext-css::before {
+	content: "CSS";
+	color: white;
+	background-color: #1572b6;
+	box-shadow: 40px 50px 50px 100px #1572b6;
+}
+
+.ext-html::before {
+	content: "HTML";
+	color: white;
+	background-color: #e34f26;
+	box-shadow: 40px 50px 50px 100px #e34f26;
+}
+
+.ext-c\+\+::before {
+	content: "C++";
+	color: white;
+	background-color: #00599c;
+	box-shadow: 40px 50px 50px 100px #00599c;
+}
+
+.ext-solidity::before {
+	content: "Solidity";
+	color: white;
+	background-color: #363636;
+	box-shadow: 40px 50px 50px 100px #363636;
+}
