@@ -1,7 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import { env } from "@env";
 import { GithubUser, GithubUserData } from "@interfaces/GithubUser.ts";
-import { GithubUserRepo } from "../interfaces/GithubUserRepo.ts";
+import { GithubUserRepo } from "@interfaces/GithubUserRepo.ts";
 
 export const handler: Handlers = {
 	async GET(_, ctx) {

@@ -1,3 +1,7 @@
+* {
+	scroll-behavior: smooth;
+}
+
 .js-bg {
 	background: linear-gradient(transparent -50%, rgb(30 41 59) 75%),
 		60% 100% / 115% 243% no-repeat url("../images/js-logo.jpg");
