@@ -1,3 +1,5 @@
+import { LeadStatus } from "../enums/LeadStatus.ts";
+
 export const badges = [
 	{
 		key: ["HTML5", "HTML"],
@@ -248,4 +250,15 @@ export function shieldBadge(language: string) {
 		badges[findLanguage];
 
 	return `https://img.shields.io/badge/-${label}-${color}?style=${style}&logo=${logo}&labelColor=${labelColor}&logoColor=${logoColor}`;
+}
+
+export function normalBadge(status: LeadStatus | string) {
+	const badge = {
+		[LeadStatus.NOT_PUBLISHED]: { color: "yellow" },
+		[LeadStatus.PUBLISHED]: { color: "success", logo: "googleplay" },
+		[LeadStatus.REMOVED]: { color: "critical" },
+	}[status.toLocaleUpperCase()];
+	return `https://img.shields.io/badge/-${status}-${
+		badge?.color ?? "inactive"
+	}${(badge?.logo && `?style=social&logo=${badge.logo}`) || ""}`;
 }

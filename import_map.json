@@ -9,6 +9,7 @@
 		"twind/": "https://esm.sh/twind@0.16.17/",
 		"env/": "https://deno.land/x/dotenv@v3.1.0/",
 		"@env": "./utils/dotenv.ts",
-		"@interfaces/": "./interfaces/"
+		"@interfaces/": "./interfaces/",
+		"@utils/": "./utils/"
 	}
 }
