@@ -9,7 +9,7 @@ import { GithubUserRepo } from "../interfaces/GithubUserRepo.ts";
 export default function RepoCard(repo: GithubUserRepo) {
 	return (
 		<section
-			class={tw`w-72 m-1 h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl`}
+			class={tw`w-72 mr-2 mb-2 h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl`}
 		>
 			<div
 				class={tw`p-2 border border-slate-700 rounded-xl h-full relative ext-${repo?.language?.toLocaleLowerCase()}`}
@@ -22,7 +22,7 @@ export default function RepoCard(repo: GithubUserRepo) {
 					</h1>
 					<span class={tw`flex items-center`}>
 						<p class={tw`text-slate-500 text-xs align-middle`}>
-							{timeAgo(repo?.updated_at)}
+							{timeAgo(repo?.created_at)}
 						</p>
 					</span>
 				</span>
