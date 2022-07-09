@@ -1,5 +1,7 @@
 import { LeadStatus } from "../enums/LeadStatus.ts";
 
+const baseImgShield = "https://img.shields.io/badge/";
+
 export const badges = [
 	{
 		key: ["HTML5", "HTML"],
@@ -29,7 +31,7 @@ export const badges = [
 		label: "Sass",
 	},
 	{
-		key: ["Vue", "Vue3", "Vuejs", "Vuejs2"],
+		key: ["Vue", "Vue3", "Vuejs", "Vuejs2", "Nuxt"],
 		labelColor: "41b883",
 		color: "41b883",
 		style: "plastic",
@@ -38,7 +40,7 @@ export const badges = [
 		label: "Vue.js",
 	},
 	{
-		key: ["Angular"],
+		key: ["Angular", "Nestjs(Nodejs)"],
 		labelColor: "d8614b",
 		color: "red",
 		style: "plastic",
@@ -110,7 +112,7 @@ export const badges = [
 		label: "Preact",
 	},
 	{
-		key: ["Nodejs"],
+		key: ["Nodejs", "express(Nodejs)"],
 		labelColor: "339933",
 		color: "339933",
 		style: "plastic",
@@ -129,8 +131,8 @@ export const badges = [
 	},
 	{
 		key: ["Fresh"],
-		labelColor: "FFED4E",
-		color: "FFFFFF",
+		labelColor: "FFFFFF",
+		color: "FFED4E",
 		style: "plastic",
 		logo: "Deno",
 		logoColor: "white",
@@ -146,7 +148,7 @@ export const badges = [
 		label: "NPM",
 	},
 	{
-		key: ["Python"],
+		key: ["Python", "Flask", "Django"],
 		labelColor: "3178C6",
 		color: "f8da59",
 		style: "plastic",
@@ -155,7 +157,7 @@ export const badges = [
 		label: "Python",
 	},
 	{
-		key: ["CSharp"],
+		key: ["CSharp", "C#"],
 		labelColor: "239120",
 		color: "239120",
 		style: "plastic",
@@ -235,6 +237,15 @@ export const badges = [
 		logoColor: "white",
 		label: "webcomponents.org",
 	},
+	{
+		key: ["Rust"],
+		labelColor: "000000",
+		color: "000000",
+		style: "plastic",
+		logo: "rust",
+		logoColor: "white",
+		label: "Rust",
+	},
 ];
 
 export function shieldBadge(language: string) {
@@ -243,13 +254,13 @@ export function shieldBadge(language: string) {
 		.findIndex((el) => el.includes(language.toLowerCase()));
 
 	if (findLanguage === -1) {
-		return `https://img.shields.io/badge/-${language}-lightgray?style=plastic&labelColor=white`;
+		return `${baseImgShield}-${language}-lightgray?style=plastic&labelColor=white`;
 	}
 
 	const { label, color, style, logo, labelColor, logoColor } =
 		badges[findLanguage];
 
-	return `https://img.shields.io/badge/-${label}-${color}?style=${style}&logo=${logo}&labelColor=${labelColor}&logoColor=${logoColor}`;
+	return `${baseImgShield}-${label}-${color}?style=${style}&logo=${logo}&labelColor=${labelColor}&logoColor=${logoColor}`;
 }
 
 export function normalBadge(status: LeadStatus | string) {
@@ -258,7 +269,31 @@ export function normalBadge(status: LeadStatus | string) {
 		[LeadStatus.PUBLISHED]: { color: "success", logo: "googleplay" },
 		[LeadStatus.REMOVED]: { color: "critical" },
 	}[status.toLocaleUpperCase()];
-	return `https://img.shields.io/badge/-${status}-${
-		badge?.color ?? "inactive"
-	}${(badge?.logo && `?style=social&logo=${badge.logo}`) || ""}`;
+	return `${baseImgShield}-${status}-${badge?.color ?? "inactive"}${
+		(badge?.logo && `?style=social&logo=${badge.logo}`) || ""
+	}`;
 }
+
+export function labelBadge(
+	label: string,
+	subLabel = "",
+	style: shieldStyles = "flat",
+	color?: string
+) {
+	const lowerCaser = (str: string) => str.toLocaleLowerCase();
+	const { color: fColor, labelColor } =
+		badges.find((lbl) =>
+			lbl.key.map(lowerCaser).includes(label.toLocaleLowerCase())
+		) || {};
+
+	return `${baseImgShield}${label}-${subLabel}-${color}?style=${style}&color=${
+		labelColor || color || "lightgray"
+	}&labelColor=${color || fColor || "lightgray"}`;
+}
+
+type shieldStyles =
+	| "flat"
+	| "plastic"
+	| "flat-square"
+	| "for-the-badge"
+	| "social";

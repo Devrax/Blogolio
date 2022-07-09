@@ -1,0 +1,107 @@
+[
+	{
+		"section": "Languages",
+		"listType": "DISC",
+		"skills": [
+			{
+				"skill": "Spanish",
+				"level": "Native"
+			},
+			{
+				"skill": "English",
+				"level": "B1",
+				"validation": "https://www.efset.org/cert/3uZmAU"
+			}
+		]
+	},
+	{
+		"section": "Programming languages",
+		"legend": "programming lang/years",
+		"listType": "BADGE",
+		"skills": [
+			{
+				"skill": "Javascript",
+				"years": ">2"
+			},
+			{
+				"skill": "Typescript",
+				"years": ">2"
+			},
+			{
+				"skill": "Python",
+				"years": ">2"
+			},
+			{
+				"skill": "Dart",
+				"years": "<1"
+			},
+			{
+				"skill": "Solidity",
+				"years": "<1"
+			},
+			{
+				"skill": "Csharp",
+				"years": ">1"
+			},
+			{
+				"skill": "Rust",
+				"years": "<1"
+			}
+		]
+	},
+	{
+		"section": "Have worked with",
+		"legend": "framework or library/years",
+		"listType": "BADGE",
+		"skills": [
+			{
+				"skill": "Angular",
+				"years": ">2"
+			},
+			{
+				"skill": "Vue",
+				"years": ">2"
+			},
+			{
+				"skill": "React",
+				"years": ">1"
+			},
+			{
+				"skill": "Nextjs",
+				"years": "<2"
+			},
+			{
+				"skill": "Nuxt",
+				"years": "<2"
+			},
+			{
+				"skill": "Flutter",
+				"years": "<1"
+			},
+			{
+				"skill": "Ionic",
+				"years": ">2"
+			},
+			{
+				"skill": "express(Nodejs)",
+				"years": "<2"
+			},
+			{
+				"skill": "Nestjs(Nodejs)",
+				"years": "<2"
+			},
+			{
+				"skill": "Fresh",
+				"years": "<1"
+			},
+			{
+				"skill": "Flask",
+				"years": "<1"
+			},
+			{
+				"skill": "DJango",
+				"years": "<1"
+			}
+		]
+	}
+]
