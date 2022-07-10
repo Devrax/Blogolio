@@ -1,3 +1,2 @@
-import { config } from "env/mod.ts";
-
-export const env = config();
+import { config } from "env";
+export const env = await config();
