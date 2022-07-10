@@ -25,7 +25,7 @@ export default function ExperienceBoard(experience: Experience) {
 
 	return (
 		<section class={tw`text-white text-justify mb-10`}>
-			<h1 class={tw`text-2xl`}>
+			<h1 class={tw`text-xl lg:text-2xl`}>
 				<b>{experience?.companyName}</b>, {experience?.positionName} -{" "}
 				{experience?.positionRole}
 			</h1>
@@ -40,21 +40,23 @@ export default function ExperienceBoard(experience: Experience) {
 			<div>
 				{experience?.experienceDescriptions.map((exp) => (
 					<div class={tw`mb-2`}>
-						<h2 class={tw`text-xl font-bold`}>{exp?.title}</h2>
+						<h2 class={tw`text-lg font-bold lg:text-xl`}>
+							{exp?.title}
+						</h2>
 						{exp?.description && <p>{exp?.description}</p>}
 						<ul class={tw`list-disc pl-5`}>
 							{exp?.details?.map((detail) => (
-								<li class={tw`mb-2`}>
+								<li class={tw`mb-2 text-sm lg:text-base`}>
 									{mergeTexts(": ")(
 										detail.leadText!,
 										detail.description
 									)}
 									{Array.isArray(detail?.topics) && (
-										<span class={tw`flex`}>
+										<span class={tw`flex flex-wrap`}>
 											{detail.topics.map(
 												(topic: string) => (
 													<img
-														class={tw`mr-1`}
+														class={tw`mr-1 mb-1`}
 														src={shieldBadge(topic)}
 														alt={topic}
 													/>
@@ -64,6 +66,7 @@ export default function ExperienceBoard(experience: Experience) {
 												?.split("/")
 												.map((status) => (
 													<span
+														class={tw`mr-1`}
 														title={
 															messagesTitle[
 																status.toLocaleUpperCase() as LeadStatus
@@ -71,7 +74,6 @@ export default function ExperienceBoard(experience: Experience) {
 														}
 													>
 														<img
-															class={tw`mr-1`}
 															src={normalBadge(
 																status
 															)}

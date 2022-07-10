@@ -47,7 +47,7 @@ const skillType = (sk: SkillSection) =>
 
 export default function (skill: SkillSection) {
 	return (
-		<section class={tw`text-white mb-5 w-56`}>
+		<section class={tw`text-white mb-5 lg:w-56 w-full`}>
 			<div class={tw`mb-2`}>
 				<h1 class={tw`inline mr-2 font-bold`}>{skill?.section}</h1>
 			</div>

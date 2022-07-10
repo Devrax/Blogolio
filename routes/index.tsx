@@ -54,12 +54,15 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				<title>{meta.title}</title>
 				<meta content={meta.description} name="description" />
 				<link rel="stylesheet" href="/css/style.css" />
-				<script src="https://cdn.tailwindcss.com"></script>
 			</Head>
 			<main class={tw`bg-slate-800 min-h-screen`}>
 				<header class="js-bg">
-					<article class={tw`flex p-10 max-w-screen-xl mx-auto`}>
-						<section class={tw`w-48 rounded-lg overflow-hidden`}>
+					<article
+						class={tw`p-10 lg:flex lg:max-w-screen-xl lg:mx-auto`}
+					>
+						<section
+							class={tw`rounded-lg overflow-hidden w-48 mx-auto lg:w-56`}
+						>
 							<img
 								src={user?.avatar_url}
 								alt={user ? `${user?.name}'s pic` : "No user"}
@@ -67,21 +70,23 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 						</section>
 
 						<section
-							class={tw`ml-2 flex flex-col justify-end w-full`}
+							class={tw`w-full text-center lg:text-left lg:ml-2 lg:flex lg:flex-col lg:justify-end`}
 						>
 							<h1
-								class={tw`text-white text-6xl drop-shadow-2xl text-shadow`}
+								class={tw`text-white text-5xl lg:drop-shadow-2xl lg:text-shadow lg:text-6xl`}
 							>
 								{user?.name || "User not found"}
 							</h1>
-							<hr />
-							<span class={tw`flex`}>
+							<hr class="hidOnSmallDevices" />
+							<span class={tw`lg:flex`}>
 								<p
-									class={tw`drop-shadow-2xl mr-10 w-1/2 text-yellow-500 text-shadow flex-1`}
+									class={tw`text-yellow-500 text-shadow drop-shadow-2xl lg:mr-10 lg:w-1/2 lg:flex-1`}
 								>
 									{user?.bio || "No bio"}
 								</p>
-								<span class={tw`text-white`}>
+								<span
+									class={tw`text-white hidOnSmallDevices lg:block`}
+								>
 									{sections.map((section, pos, arr) => (
 										<>
 											<a href={"#" + section.id}>
@@ -100,7 +105,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 					</article>
 
 					<article
-						class={tw`max-w-screen-xl justify-between flex text-white px-10 mx-auto`}
+						class={tw`justify-between flex px-10 text-white lg:max-w-screen-xl lg:mx-auto`}
 					>
 						{contacts.map((contact) => (
 							<ContactButton {...contact} userName={user?.name} />
@@ -108,17 +113,15 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 					</article>
 				</header>
 
-				<div class={tw`p-10 flex max-w-screen-xl mx-auto`}>
-					<article class={tw`flex-1 mr-10`}>
+				<div class={tw`p-10 lg:flex lg:max-w-screen-xl lg:mx-auto`}>
+					<article class={tw`lg:flex-1 lg:mr-10`}>
 						{sections.map((section) => (
 							<section class={tw`mb-10`}>
-								<div class={tw`mb-3`} id={section.id}>
-									<h1
-										class={tw`text-white text-3xl text-shadow`}
-									>
+								<div class={tw`lg:mb-3`} id={section.id}>
+									<h1 class={tw`text-white text-shadow`}>
 										<a
 											href={"#" + section.id}
-											class={tw`text-4xl font-bold text-shadow drop-shadow-xl`}
+											class={tw`text-3xl font-bold text-shadow drop-shadow-xl lg:text-4xl`}
 										>
 											{section.title}
 										</a>
@@ -136,13 +139,13 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 					<aside>
 						<div>
 							<h1
-								class={tw`text-white text-4xl font-bold drop-shadow-xl text-shadow mb-3`}
+								class={tw`text-white text-4xl font-bold text-shadow lg:drop-shadow-xl lg:mb-3`}
 							>
 								Skills
 							</h1>
 							<hr />
 							<br />
-							<article class={tw`mb-10`}>
+							<article class={tw`lg:mb-10`}>
 								{skills.map((skill) => (
 									<SkillSection {...skill} />
 								))}

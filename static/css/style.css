@@ -2,11 +2,6 @@
 	scroll-behavior: smooth;
 }
 
-.js-bg {
-	background: linear-gradient(transparent -50%, rgb(30 41 59) 75%),
-		60% 100% / 115% 243% no-repeat url("../images/js-logo.jpg");
-}
-
 .grid-projects {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -93,4 +88,24 @@
 	color: white;
 	background-color: #363636;
 	box-shadow: 40px 50px 50px 100px #363636;
+}
+
+.js-bg {
+	background: linear-gradient(transparent -50%, rgb(30 41 59) 50%),
+		30% 575% / 110% 110% no-repeat url("../images/js-logo.jpg");
+}
+
+.hidOnSmallDevices {
+	display: none;
+}
+
+@media (min-width: 1024px) {
+	.js-bg {
+		background: linear-gradient(transparent -50%, rgb(30 41 59) 60%),
+			40% 400% / 110% 110% no-repeat url("../images/js-logo.jpg");
+	}
+
+	.hidOnSmallDevices {
+		display: inherit;
+	}
 }
