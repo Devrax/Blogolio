@@ -21,7 +21,7 @@ export default function FooterNavigation() {
 				←{" "}
 			</span>
 			<div
-				class={tw`bg-slate-700 flex flex-1 items-center justify-between px-10 text-white`}
+				class={tw`bg-slate-700 flex flex-1 items-center justify-between pr-10 text-white`}
 			>
 				{[
 					{
