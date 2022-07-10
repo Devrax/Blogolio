@@ -9,7 +9,7 @@ import { GithubUserRepo } from "../interfaces/GithubUserRepo.ts";
 export default function RepoCard(repo: GithubUserRepo) {
 	return (
 		<section
-			class={tw`w-72 mr-2 mb-2 h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl`}
+			class={tw`min-w-full h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl`}
 		>
 			<div
 				class={tw`p-2 border border-slate-700 rounded-xl h-full relative ext-${repo?.language?.toLocaleLowerCase()}`}

@@ -13,7 +13,8 @@ export default function ContactButton(contact: ContactUser) {
 
 	return (
 		<span
-			class={tw`flex flex-col items-center fill-white`}
+			onClick={() => processRedirection(contact, anchorRef)}
+			class={tw`flex flex-col items-center fill-white hover:text-yellow-500 hover:fill-yellow-500 cursor-pointer`}
 			title={`${contact.userName}'s ${contact.siteName}`}
 		>
 			<a
@@ -25,9 +26,7 @@ export default function ContactButton(contact: ContactUser) {
 				class={tw`w-6 h-6 block`}
 				dangerouslySetInnerHTML={{ __html: contact.iconPath }}
 			></span>
-			<span onClick={() => processRedirection(contact, anchorRef)}>
-				{contact.siteName}
-			</span>
+			<span>{contact.siteName}</span>
 		</span>
 	);
 }
@@ -43,5 +42,4 @@ function processRedirection(contact: ContactRef, event: any) {
 		anchorRef.href = "mailto:" + contact.siteUrl + "@" + "gmail.com";
 	}
 	anchorRef.click();
-	anchorRef.href = "";
 }

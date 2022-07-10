@@ -7,6 +7,14 @@
 		60% 100% / 115% 243% no-repeat url("../images/js-logo.jpg");
 }
 
+.grid-projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	place-content: center;
+	place-items: center;
+	gap: 25px;
+}
+
 .text-shadow {
 	text-shadow: 1px 1px 1px black;
 }

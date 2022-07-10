@@ -44,7 +44,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				title: "Projects",
 				id: "#projects",
 				content: repos?.map((repo) => <RepoCard {...repo} />),
-				classContent: "flex flex-wrap",
+				classContent: "grid-projects",
 			},
 		];
 
@@ -77,7 +77,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 							<hr />
 							<span class={tw`flex`}>
 								<p
-									class={tw`drop-shadow-2xl w-1/2 text-yellow-500 text-shadow flex-1`}
+									class={tw`drop-shadow-2xl mr-10 w-1/2 text-yellow-500 text-shadow flex-1`}
 								>
 									{user?.bio || "No bio"}
 								</p>
