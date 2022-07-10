@@ -41,7 +41,9 @@ export default function FooterNavigation() {
 						id: "skills",
 					},
 				].map((section) => (
-					<a href={"#" + section.id}>{section.title}</a>
+					<a class={tw`mx-2`} href={"#" + section.id}>
+						{section.title}
+					</a>
 				))}
 			</div>
 		</div>
