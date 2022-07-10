@@ -109,3 +109,13 @@
 		display: inherit;
 	}
 }
+
+.slid {
+	will-change: transform, border-radius;
+	transition: transform 1s, border-radius 3s;
+}
+
+.hiddenFooter {
+	border-top-left-radius: 34px;
+	transform: translate(83%, 0px);
+}

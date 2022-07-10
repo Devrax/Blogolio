@@ -4,67 +4,20 @@ import { Fragment, h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import { GithubUser, GithubUserData } from "@interfaces/GithubUser.ts";
+import { GithubUserData } from "@interfaces/GithubUser.ts";
 import { Experience } from "@interfaces/Experience.ts";
 import { ContactRef } from "@interfaces/ContactRef.ts";
-import { GithubUserRepo } from "@interfaces/GithubUserRepo.ts";
 import { SkillSection as ISkillSection } from "@interfaces/Skill.ts";
 import RepoCard from "../islands/RepoCard.tsx";
 import ExperienceBoard from "../islands/ExperienceBoard.tsx";
 import SkillSection from "../islands/SkillSection.tsx";
 import ContactButton from "../islands/ContactButton.tsx";
+import FooterNavigation from "../islands/FooterNavigation.tsx";
 import cv from "@local/curriculum.json" assert { type: "json" };
 import sk from "@local/skills.json" assert { type: "json" };
 import ctt from "@local/contact.json" assert { type: "json" };
-import { env } from "@env";
-
-export const handler: Handlers = {
-	async GET(_, ctx) {
-		try {
-			const gitCredentials =
-					env.GITHUB_CREDENTIALS ||
-					Deno.env.get("GITHUB_CREDENTIALS"),
-				gitUserName =
-					env.GITHUB_USERNAME || Deno.env.get("GITHUB_USERNAME"),
-				githubApiBaseUrl = "https://api.github.com",
-				githubApiHeaders = new Headers({
-					Accept: "application/vnd.github+json",
-					...(gitCredentials
-						? {
-								Authorization: `token ${gitCredentials}`,
-						  }
-						: {}),
-				}),
-				[githubUser, githubRepos]: [Response, Response] =
-					await Promise.all([
-						fetch(`${githubApiBaseUrl}/users/${gitUserName}`, {
-							headers: githubApiHeaders,
-						}),
-						fetch(
-							`${githubApiBaseUrl}/users/${gitUserName}/repos`,
-							{ headers: githubApiHeaders }
-						),
-					]);
-			if (githubUser.status === 404 || githubRepos.status === 404) {
-				return ctx.render(null);
-			}
-			const user: GithubUser = await githubUser.json();
-			const repos = ((await githubRepos.json()) as GithubUserRepo[])
-				.filter((repo) => !repo.fork)
-				.sort(
-					(repoA, repoB) =>
-						repoA.stargazers_count - repoB.stargazers_count
-				)
-				.reverse();
-
-			return ctx.render({ ...user, repos } as GithubUserData);
-		} catch (err) {
-			console.log(err);
-			return ctx.render(null);
-		}
-	},
-};
-
+import { handler as homeHandler } from "../private/HomeHandler.ts";
+export const handler: Handlers = homeHandler;
 const curriculums: Experience[] = cv;
 const skills = sk as ISkillSection[];
 const contacts = ctt as ContactRef[];
@@ -89,7 +42,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 			},
 			{
 				title: "Projects",
-				id: "#projects",
+				id: "projects",
 				content: repos?.map((repo) => <RepoCard {...repo} />),
 				classContent: "grid-projects",
 			},
@@ -101,9 +54,11 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				<title>{meta.title}</title>
 				<meta content={meta.description} name="description" />
 				<link rel="stylesheet" href="/css/style.css" />
-				{/* <script src="https://cdn.tailwindcss.com"></script> */}
+				<script src="https://cdn.tailwindcss.com"></script>
 			</Head>
-			<main class={tw`bg-slate-800 min-h-screen relative`}>
+			<main
+				class={tw`bg-slate-800 min-h-screen relative overflow-hidden`}
+			>
 				<header class="js-bg" id="start">
 					<article
 						class={tw`p-10 lg:flex lg:max-w-screen-xl lg:mx-auto`}
@@ -206,26 +161,8 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 						</div>
 					</aside>
 				</div>
-
-				<footer class={tw`p-5 bg-slate-700 sticky bottom-0 lg:hidden`}>
-					<div
-						class={tw`bg-slate-700 text-white flex justify-evenly`}
-					>
-						{[
-							...sections,
-							{
-								title: "Skills",
-								id: "skills",
-							},
-							{
-								title: "↑",
-								id: "start",
-							},
-						].map((section) => (
-							<a href={"#" + section.id}>{section.title}</a>
-						))}
-					</div>
-				</footer>
+				<br />
+				<FooterNavigation />
 			</main>
 		</>
 	);
