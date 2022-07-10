@@ -64,6 +64,7 @@ const skills = sk as ISkillSection[];
 const contacts = ctt as ContactRef[];
 
 export default function Home({ data }: PageProps<GithubUserData | null>) {
+	console.log(data);
 	const { repos, ...user } = (data as GithubUserData) || {},
 		meta = {
 			title: user?.login,
