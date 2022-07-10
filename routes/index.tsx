@@ -54,9 +54,10 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				<title>{meta.title}</title>
 				<meta content={meta.description} name="description" />
 				<link rel="stylesheet" href="/css/style.css" />
+				{/* <script src="https://cdn.tailwindcss.com"></script> */}
 			</Head>
-			<main class={tw`bg-slate-800 min-h-screen`}>
-				<header class="js-bg">
+			<main class={tw`bg-slate-800 min-h-screen relative`}>
+				<header class="js-bg" id="start">
 					<article
 						class={tw`p-10 lg:flex lg:max-w-screen-xl lg:mx-auto`}
 					>
@@ -104,12 +105,17 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 						</section>
 					</article>
 
-					<article
-						class={tw`justify-between flex px-10 text-white lg:max-w-screen-xl lg:mx-auto`}
-					>
-						{contacts.map((contact) => (
-							<ContactButton {...contact} userName={user?.name} />
-						))}
+					<article class={tw`px-10 max-w-screen-xl mx-auto`}>
+						<section
+							class={tw`justify-between flex text-white lg:w-1/3`}
+						>
+							{contacts.map((contact) => (
+								<ContactButton
+									{...contact}
+									userName={user?.name}
+								/>
+							))}
+						</section>
 					</article>
 				</header>
 
@@ -137,7 +143,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 					</article>
 
 					<aside>
-						<div>
+						<div id="skills">
 							<h1
 								class={tw`text-white text-4xl font-bold text-shadow lg:drop-shadow-xl lg:mb-3`}
 							>
@@ -153,6 +159,26 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 						</div>
 					</aside>
 				</div>
+
+				<footer class={tw`p-5 bg-slate-700 sticky bottom-0 lg:hidden`}>
+					<div
+						class={tw`bg-slate-700 text-white flex justify-evenly`}
+					>
+						{[
+							...sections,
+							{
+								title: "Skills",
+								id: "skills",
+							},
+							{
+								title: "↑",
+								id: "start",
+							},
+						].map((section) => (
+							<a href={"#" + section.id}>{section.title}</a>
+						))}
+					</div>
+				</footer>
 			</main>
 		</>
 	);

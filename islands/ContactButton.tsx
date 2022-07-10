@@ -23,7 +23,7 @@ export default function ContactButton(contact: ContactUser) {
 				rel="noopener author external noreferrer"
 			></a>
 			<span
-				class={tw`w-6 h-6 block`}
+				class={tw`w-6 h-6 block animate-bounce`}
 				dangerouslySetInnerHTML={{ __html: contact.iconPath }}
 			></span>
 			<span>{contact.siteName}</span>
