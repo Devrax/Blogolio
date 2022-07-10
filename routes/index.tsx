@@ -21,35 +21,30 @@ import { env } from "@env";
 export const handler: Handlers = {
 	async GET(_, ctx) {
 		try {
-			const githubApiBaseUrl = "https://api.github.com",
+			const gitCredentials =
+					env.GITHUB_CREDENTIALS ||
+					Deno.env.get("GITHUB_CREDENTIALS"),
+				gitUserName =
+					env.GITHUB_USERNAME || Deno.env.get("GITHUB_USERNAME"),
+				githubApiBaseUrl = "https://api.github.com",
 				githubApiHeaders = new Headers({
 					Accept: "application/vnd.github+json",
-					...(Deno.env.get("GITHUB_CREDENTIALS")
+					...(gitCredentials
 						? {
-								Authorization: `token ${Deno.env.get(
-									"GITHUB_CREDENTIALS"
-								)}`,
+								Authorization: `token ${gitCredentials}`,
 						  }
 						: {}),
-				});
-
-			const [githubUser, githubRepos]: [Response, Response] =
-				await Promise.all([
-					fetch(
-						`${githubApiBaseUrl}/users/${Deno.env.get(
-							"GITHUB_USERNAME"
-						)}`,
-						{
+				}),
+				[githubUser, githubRepos]: [Response, Response] =
+					await Promise.all([
+						fetch(`${githubApiBaseUrl}/users/${gitUserName}`, {
 							headers: githubApiHeaders,
-						}
-					),
-					fetch(
-						`${githubApiBaseUrl}/users/${Deno.env.get(
-							"GITHUB_USERNAME"
-						)}/repos`,
-						{ headers: githubApiHeaders }
-					),
-				]);
+						}),
+						fetch(
+							`${githubApiBaseUrl}/users/${gitUserName}/repos`,
+							{ headers: githubApiHeaders }
+						),
+					]);
 			if (githubUser.status === 404 || githubRepos.status === 404) {
 				return ctx.render(null);
 			}
@@ -64,8 +59,8 @@ export const handler: Handlers = {
 
 			return ctx.render({ ...user, repos } as GithubUserData);
 		} catch (err) {
-			console.error(err);
-			return ctx.render(err);
+			console.log(err);
+			return ctx.render(null);
 		}
 	},
 };
@@ -75,7 +70,6 @@ const skills = sk as ISkillSection[];
 const contacts = ctt as ContactRef[];
 
 export default function Home({ data }: PageProps<GithubUserData | null>) {
-	console.log(data);
 	const { repos, ...user } = (data as GithubUserData) || {},
 		meta = {
 			title: user?.login,
