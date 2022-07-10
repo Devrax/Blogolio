@@ -35,6 +35,8 @@ export const handler: Handlers = {
 						repoA.stargazers_count - repoB.stargazers_count
 				)
 				.reverse();
+
+			console.log({ ...user, repos });
 			return ctx.render({ ...user, repos } as GithubUserData);
 		} catch (err) {
 			console.error(err);
