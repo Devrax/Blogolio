@@ -4,11 +4,11 @@ import { Fragment, h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import { GithubUserData } from "@interfaces/GithubUser.ts";
+import { GithubUser, GithubUserData } from "@interfaces/GithubUser.ts";
 import { Experience } from "@interfaces/Experience.ts";
 import { ContactRef } from "@interfaces/ContactRef.ts";
+import { GithubUserRepo } from "@interfaces/GithubUserRepo.ts";
 import { SkillSection as ISkillSection } from "@interfaces/Skill.ts";
-import { handler as homeHandler } from "../private/HomeHandler.ts";
 import RepoCard from "../islands/RepoCard.tsx";
 import ExperienceBoard from "../islands/ExperienceBoard.tsx";
 import SkillSection from "../islands/SkillSection.tsx";
@@ -16,8 +16,49 @@ import ContactButton from "../islands/ContactButton.tsx";
 import cv from "@local/curriculum.json" assert { type: "json" };
 import sk from "@local/skills.json" assert { type: "json" };
 import ctt from "@local/contact.json" assert { type: "json" };
+import { env } from "@env";
 
-export const handler: Handlers = homeHandler;
+export const handler: Handlers = {
+	async GET(_, ctx) {
+		try {
+			const githubApiBaseUrl = "https://api.github.com",
+				githubApiHeaders = new Headers({
+					Accept: "application/vnd.github+json",
+					...(env.GITHUB_CREDENTIALS
+						? { Authorization: `token ${env.GITHUB_CREDENTIALS}` }
+						: {}),
+				});
+
+			const [githubUser, githubRepos]: [Response, Response] =
+				await Promise.all([
+					fetch(`${githubApiBaseUrl}/users/${env.GITHUB_USERNAME}`, {
+						headers: githubApiHeaders,
+					}),
+					fetch(
+						`${githubApiBaseUrl}/users/${env.GITHUB_USERNAME}/repos`,
+						{ headers: githubApiHeaders }
+					),
+				]);
+			if (githubUser.status === 404 || githubRepos.status === 404) {
+				return ctx.render(null);
+			}
+			const user: GithubUser = await githubUser.json();
+			const repos = ((await githubRepos.json()) as GithubUserRepo[])
+				.filter((repo) => !repo.fork)
+				.sort(
+					(repoA, repoB) =>
+						repoA.stargazers_count - repoB.stargazers_count
+				)
+				.reverse();
+
+			console.log({ ...user, repos });
+			return ctx.render({ ...user, repos } as GithubUserData);
+		} catch (err) {
+			console.error(err);
+		}
+	},
+};
+
 const curriculums: Experience[] = cv;
 const skills = sk as ISkillSection[];
 const contacts = ctt as ContactRef[];
