@@ -54,7 +54,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				<title>{meta.title}</title>
 				<meta content={meta.description} name="description" />
 				<link rel="stylesheet" href="/css/style.css" />
-				<script src="https://cdn.tailwindcss.com"></script>
+				{/* <script src="https://cdn.tailwindcss.com"></script> */}
 			</Head>
 			<main
 				class={tw`bg-slate-800 min-h-screen relative overflow-hidden`}
