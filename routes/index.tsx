@@ -40,7 +40,7 @@ export const handler: Handlers = {
 					),
 				]);
 			if (githubUser.status === 404 || githubRepos.status === 404) {
-				return ctx.render("Problem");
+				return ctx.render(githubUser, githubRepos);
 			}
 			const user: GithubUser = await githubUser.json();
 			const repos = ((await githubRepos.json()) as GithubUserRepo[])
