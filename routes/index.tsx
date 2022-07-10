@@ -24,23 +24,34 @@ export const handler: Handlers = {
 			const githubApiBaseUrl = "https://api.github.com",
 				githubApiHeaders = new Headers({
 					Accept: "application/vnd.github+json",
-					...(env.GITHUB_CREDENTIALS
-						? { Authorization: `token ${env.GITHUB_CREDENTIALS}` }
+					...(Deno.env.get("GITHUB_CREDENTIALS")
+						? {
+								Authorization: `token ${Deno.env.get(
+									"GITHUB_CREDENTIALS"
+								)}`,
+						  }
 						: {}),
 				});
 
 			const [githubUser, githubRepos]: [Response, Response] =
 				await Promise.all([
-					fetch(`${githubApiBaseUrl}/users/${env.GITHUB_USERNAME}`, {
-						headers: githubApiHeaders,
-					}),
 					fetch(
-						`${githubApiBaseUrl}/users/${env.GITHUB_USERNAME}/repos`,
+						`${githubApiBaseUrl}/users/${Deno.env.get(
+							"GITHUB_USERNAME"
+						)}`,
+						{
+							headers: githubApiHeaders,
+						}
+					),
+					fetch(
+						`${githubApiBaseUrl}/users/${Deno.env.get(
+							"GITHUB_USERNAME"
+						)}/repos`,
 						{ headers: githubApiHeaders }
 					),
 				]);
 			if (githubUser.status === 404 || githubRepos.status === 404) {
-				return ctx.render(githubUser, githubRepos);
+				return ctx.render(null);
 			}
 			const user: GithubUser = await githubUser.json();
 			const repos = ((await githubRepos.json()) as GithubUserRepo[])
