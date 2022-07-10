@@ -51,10 +51,10 @@ export const handler: Handlers = {
 				)
 				.reverse();
 
-			console.log({ ...user, repos });
 			return ctx.render({ ...user, repos } as GithubUserData);
 		} catch (err) {
 			console.error(err);
+			return ctx.render(err);
 		}
 	},
 };
