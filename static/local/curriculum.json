@@ -1,5 +1,38 @@
 [
 	{
+		"companyName": "BHD Bank",
+		"positionName": "Visual Programmer Mid",
+		"positionRole": "Front-end/Mobile de",
+		"startDate": "2021-02-15T00:00:00.000Z",
+		"experienceDescriptions": [
+			{
+				"title": "Responsable for",
+				"details": [
+					{
+						"description": "Develop responsive visual interfaces according to those proposed by the Interactive Designer and contributing my personal ideas to what aesthetic and functional point it is possible to carry it out knowing the available tools."
+					},
+					{
+						"description": "Program flexible software capable of quickly adapting to changes based on new specifications or features."
+					},
+					{
+						"description": "Audit code of less experienced engineers to verify that the written code respects the SOLID and KISS principles."
+					}
+				]
+			},
+			{
+				"title": "Portfolio",
+				"details": [
+					{
+						"leadText": "Banking Empresarial BHD",
+						"leadStatus": "Published",
+						"description": "Application to facilitate and manage banking processes that were traditionally carried out by staff in a branch for the bank's clients.",
+						"topics": ["Angular", "Ionic"]
+					}
+				]
+			}
+		]
+	},
+	{
 		"companyName": "LancerGroup",
 		"positionName": "Builder III",
 		"positionRole": "Front-end/Mobile dev",
@@ -42,39 +75,6 @@
 						"leadText": "CONIAF",
 						"leadStatus": "Removed",
 						"description": "CONIAF is a government application that offers documentation, magazines and news on agricultural and forestry issues.",
-						"topics": ["Angular", "Ionic"]
-					}
-				]
-			}
-		]
-	},
-	{
-		"companyName": "BHD Bank",
-		"positionName": "Visual Programmer Mid",
-		"positionRole": "Front-end/Mobile de",
-		"startDate": "2021-02-15T00:00:00.000Z",
-		"experienceDescriptions": [
-			{
-				"title": "Responsable for",
-				"details": [
-					{
-						"description": "Develop responsive visual interfaces according to those proposed by the Interactive Designer and contributing my personal ideas to what aesthetic and functional point it is possible to carry it out knowing the available tools."
-					},
-					{
-						"description": "Program flexible software capable of quickly adapting to changes based on new specifications or features."
-					},
-					{
-						"description": "Audit code of less experienced engineers to verify that the written code respects the SOLID and KISS principles."
-					}
-				]
-			},
-			{
-				"title": "Portfolio",
-				"details": [
-					{
-						"leadText": "Banking Empresarial BHD",
-						"leadStatus": "Published",
-						"description": "Application to facilitate and manage banking processes that were traditionally carried out by staff in a branch for the bank's clients.",
 						"topics": ["Angular", "Ionic"]
 					}
 				]
