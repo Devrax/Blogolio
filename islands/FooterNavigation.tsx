@@ -29,8 +29,8 @@ export default function FooterNavigation() {
 						id: "start",
 					},
 					{
-						title: "Portfolio",
-						id: "portfolio",
+						title: "Experience",
+						id: "experience",
 					},
 					{
 						title: "Projects",

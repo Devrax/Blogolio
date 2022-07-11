@@ -229,7 +229,7 @@ export const badges = [
 		label: "Swift",
 	},
 	{
-		key: ["web-component", "webcomponents"],
+		key: ["web-component", "webcomponents", "webcomponent"],
 		labelColor: "3880FF",
 		color: "3880FF",
 		style: "plastic",
