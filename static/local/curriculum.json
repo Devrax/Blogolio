@@ -6,10 +6,10 @@
 		"startDate": "2021-02-15T00:00:00.000Z",
 		"experienceDescriptions": [
 			{
-				"title": "Responsable for",
+				"title": "Responsible for",
 				"details": [
 					{
-						"description": "Develop responsive visual interfaces according to those proposed by the Interactive Designer and contributing my personal ideas to what aesthetic and functional point it is possible to carry it out knowing the available tools."
+						"description": "Develop responsive visual interfaces according to those proposed by the Interactive Designer and contribute my ideas to what aesthetic and functional point it is possible to carry it out knowing the available tools."
 					},
 					{
 						"description": "Program flexible software capable of quickly adapting to changes based on new specifications or features."
@@ -40,10 +40,10 @@
 		"endDate": "2020-12-15T04:00:00.000Z",
 		"experienceDescriptions": [
 			{
-				"title": "Responsable for",
+				"title": "Responsible for",
 				"details": [
 					{
-						"description": "Design maintainable, scalable and reusable software in projects of various scales"
+						"description": "Design maintainable, scalable, and reusable software in projects of various scales"
 					},
 					{
 						"description": "Work to solve complex problems using the latest technologies in Mobile, and Web Technologies."
@@ -62,7 +62,7 @@
 					{
 						"leadText": "Turn o'Clock",
 						"leadStatus": "Not published",
-						"description": "Turn O'clock is a scheduling app which allows you to take tickets or turns from anywhere and ease the process of waiting.",
+						"description": "Turn O'clock is a scheduling app that allows you to take tickets or turns from anywhere and ease the process of waiting.",
 						"topics": ["Angular", "Ionic"]
 					},
 					{
@@ -74,7 +74,7 @@
 					{
 						"leadText": "CONIAF",
 						"leadStatus": "Removed",
-						"description": "CONIAF is a government application that offers documentation, magazines and news on agricultural and forestry issues.",
+						"description": "CONIAF is a government application that offers documentation, magazines, and news on agricultural and forestry issues.",
 						"topics": ["Angular", "Ionic"]
 					}
 				]
