@@ -53,7 +53,10 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 			<Head>
 				<title>{meta.title}</title>
 				<meta content={meta.description} name="description" />
+				<meta name={user?.name} content="Author name" />
 				<link rel="stylesheet" href="/css/style.css" />
+				<link rel="stylesheet" href="/css/grid.css" />
+				<link rel="stylesheet" href="/css/text-utilities.css" />
 				{/* <script src="https://cdn.tailwindcss.com"></script> */}
 			</Head>
 			<main

@@ -11,6 +11,7 @@
 		"@env": "./utils/dotenv.ts",
 		"@interfaces/": "./interfaces/",
 		"@utils/": "./utils/",
-		"@local/": "./static/local/"
+		"@local/": "./static/local/",
+		"@marked": "https://esm.sh/marked@4.0.18"
 	}
 }

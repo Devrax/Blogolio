@@ -251,8 +251,7 @@ export const badges = [
 export function shieldBadge(language: string) {
 	const findLanguage = badges
 		.map((el) => el.key.map((topic) => topic.toLowerCase()))
-		.findIndex((el) => el.includes(language.toLowerCase()));
-
+		.findIndex((el) => el.includes(language.trim().toLowerCase()));
 	if (findLanguage === -1) {
 		return `${baseImgShield}-${language}-lightgray?style=plastic&labelColor=white`;
 	}

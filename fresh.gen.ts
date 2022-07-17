@@ -2,23 +2,29 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/index.tsx";
-import * as $$0 from "./islands/ContactButton.tsx";
-import * as $$1 from "./islands/ExperienceBoard.tsx";
-import * as $$2 from "./islands/FooterNavigation.tsx";
-import * as $$3 from "./islands/RepoCard.tsx";
-import * as $$4 from "./islands/SkillSection.tsx";
+import * as $0 from "./routes/blog/[slug].tsx";
+import * as $1 from "./routes/blog/index.tsx";
+import * as $2 from "./routes/index.tsx";
+import * as $$0 from "./islands/BlogCard.tsx";
+import * as $$1 from "./islands/ContactButton.tsx";
+import * as $$2 from "./islands/ExperienceBoard.tsx";
+import * as $$3 from "./islands/FooterNavigation.tsx";
+import * as $$4 from "./islands/RepoCard.tsx";
+import * as $$5 from "./islands/SkillSection.tsx";
 
 const manifest = {
   routes: {
-    "./routes/index.tsx": $0,
+    "./routes/blog/[slug].tsx": $0,
+    "./routes/blog/index.tsx": $1,
+    "./routes/index.tsx": $2,
   },
   islands: {
-    "./islands/ContactButton.tsx": $$0,
-    "./islands/ExperienceBoard.tsx": $$1,
-    "./islands/FooterNavigation.tsx": $$2,
-    "./islands/RepoCard.tsx": $$3,
-    "./islands/SkillSection.tsx": $$4,
+    "./islands/BlogCard.tsx": $$0,
+    "./islands/ContactButton.tsx": $$1,
+    "./islands/ExperienceBoard.tsx": $$2,
+    "./islands/FooterNavigation.tsx": $$3,
+    "./islands/RepoCard.tsx": $$4,
+    "./islands/SkillSection.tsx": $$5,
   },
   baseUrl: import.meta.url,
 };
