@@ -1,6 +1,7 @@
 import { HandlerContext, Handlers } from "$fresh/server.ts";
 import { MarkdownMetaEnum } from "../enums/MarkdownMetaSignature.ts";
 import { MarkdownMeta } from "../interfaces/MarkdownMeta.ts";
+import { GithubUserGET } from "./external-apis/github.ts";
 
 function createMarkdownMapping(): MarkdownMeta[] {
 	try {
@@ -38,10 +39,11 @@ function createMarkdownMapping(): MarkdownMeta[] {
 }
 
 export const handler: Handlers = {
-	GET(_, ctx: HandlerContext) {
+	async GET(_, ctx: HandlerContext) {
 		try {
-			const blogList = createMarkdownMapping();
-			return ctx.render(blogList);
+			const blogList = createMarkdownMapping(),
+				githubUser = await GithubUserGET();
+			return ctx.render({ blogList, githubUser });
 		} catch (err) {
 			console.log(err);
 			return ctx.render();
