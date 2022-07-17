@@ -44,6 +44,7 @@ function processRedirection(contact: ContactRef, event: any) {
 			break;
 		case "Blog":
 			anchorRef.rel = "next";
+			anchorRef.target = "_self";
 			break;
 	}
 	anchorRef.click();
