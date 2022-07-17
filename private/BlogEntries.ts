@@ -3,14 +3,15 @@ import { MarkdownMetaEnum } from "../enums/MarkdownMetaSignature.ts";
 import { MarkdownMeta } from "../interfaces/MarkdownMeta.ts";
 import { GithubUserGET } from "./external-apis/github.ts";
 
-function createMarkdownMapping(): MarkdownMeta[] {
+async function createMarkdownMapping(): Promise<MarkdownMeta[]> {
 	try {
 		const path = "./static/markdown",
 			mappedJSON: MarkdownMeta[] = [];
 
-		for (const dir of Deno.readDirSync(path)) {
+		for await (const dir of Deno.readDir(path)) {
+			console.log(dir);
 			if (dir.isFile && dir.name.includes(".md")) {
-				const content = Deno.readTextFileSync(`${path}/${dir.name}`),
+				const content = await Deno.readTextFile(`${path}/${dir.name}`),
 					metaContent = content.match(/<--\n*([^]+)\n*!-->/gm);
 
 				if (metaContent != null && metaContent.length > 0) {
@@ -41,7 +42,7 @@ function createMarkdownMapping(): MarkdownMeta[] {
 export const handler: Handlers = {
 	async GET(_, ctx: HandlerContext) {
 		try {
-			const blogList = createMarkdownMapping(),
+			const blogList = await createMarkdownMapping(),
 				githubUser = await GithubUserGET();
 			return ctx.render({
 				blogList,
