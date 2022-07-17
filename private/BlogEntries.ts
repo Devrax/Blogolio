@@ -43,7 +43,10 @@ export const handler: Handlers = {
 		try {
 			const blogList = createMarkdownMapping(),
 				githubUser = await GithubUserGET();
-			return ctx.render({ blogList, githubUser });
+			return ctx.render({
+				blogList,
+				githubUser: await githubUser.json(),
+			});
 		} catch (err) {
 			console.log(err);
 			return ctx.render();

@@ -4,16 +4,15 @@ import { h, Fragment } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
 import { tw } from "@twind";
-import { handler as BlogEntries } from "../../private/BlogEntries.ts";
+import { handler as BlogEntry } from "../../private/BlogEntry.ts";
 import { MarkdownMeta } from "@interfaces/MarkdownMeta.ts";
 import { GithubUser } from "@interfaces/GithubUser.ts";
-import BlogCard from "../../islands/BlogCard.tsx";
 
-export const handler = BlogEntries;
+export const handler = BlogEntry;
 
-export default function BlogHome({
-	data: { blogList, githubUser },
-}: PageProps<{ blogList: MarkdownMeta[]; githubUser: GithubUser }>) {
+export default function BlogPost({
+	data: { blogPost, githubUser },
+}: PageProps<{ blogPost: string | null; githubUser: GithubUser }>) {
 	return (
 		<>
 			<Head>
@@ -27,7 +26,8 @@ export default function BlogHome({
 					name="keywords"
 					content="Blog, entries, programming, learning, Software development"
 				/>
-				<link rel="stylesheet" href="/css/grid.css" />
+				<script src="https://cdn.tailwindcss.com" defer></script>
+				<link rel="stylesheet" href="/css/markdown.css" />
 				<link rel="stylesheet" href="/css/text-utilities.css" />
 			</Head>
 			<main
@@ -43,6 +43,15 @@ export default function BlogHome({
 									href="/"
 								>
 									Home
+								</a>
+							</li>
+							<li class={tw`mr-5`}>
+								<a
+									rel="prefetch preload"
+									class={tw`hover:underline decoration-solid text-white font-bold text-xl hover:text-yellow-500 hover:fill-yellow-500 cursor-pointer`}
+									href="/blog"
+								>
+									Blog
 								</a>
 							</li>
 							<li>
@@ -61,22 +70,15 @@ export default function BlogHome({
 						</ul>
 					</nav>
 				</header>
-				<article class={tw`p-10 lg:max-w-screen-xl lg:mx-auto`}>
-					<section id="blog-entries">
-						<div class={tw`mb-10`}>
-							<h1
-								class={tw`text-white text-shadow drop-shadow text-4xl text-center`}
-							>
-								Welcome to my Blog
-							</h1>
-						</div>
-						<div class={tw`grid-projects`}>
-							{blogList.map((entry) => (
-								<BlogCard {...entry} />
-							))}
-						</div>
-					</section>
-				</article>
+
+				{blogPost ? (
+					<article
+						class={tw`p-10 lg:max-w-screen-xl lg:mx-auto markdown`}
+						dangerouslySetInnerHTML={{ __html: blogPost }}
+					></article>
+				) : (
+					<article>No Entries :(</article>
+				)}
 			</main>
 		</>
 	);

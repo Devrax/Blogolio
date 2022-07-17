@@ -30,20 +30,18 @@ const listsRules: ParsingRuler = [
 	[/([^\n]+)(\*)([^\n]+)/g, "<ul><li>$3</li></ul>"],
 ];
 const imagesRules: ParsingRuler = [
-	[
-		/!\[([^\]]+)\]\(([^)]+)\s"([^")]+)"\)/g,
-		'<img src="$2" alt="$1" title="$3" />',
-	],
+	[/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />'],
 ];
 const rules: ParsingRuler = [
 	...omitComments,
 	...headersRules,
 	...textTransformationRules,
+	...imagesRules,
 	...linksRules,
 	...listsRules,
-	...imagesRules,
 ];
 
+// TODO: Improve this markdown parser
 export class MarkdownProcessor {
 	private ruler: ParsingRuler;
 
@@ -55,12 +53,12 @@ export class MarkdownProcessor {
 					: [...config.rules];
 		} else {
 			this.ruler = rules;
-			console.assert(
-				config?.rules && !Array.isArray(config.rules),
-				`
-         config is optional but when it's defined as an Object{rules, extend}
-         the "rules" property must be define as a tuple of type Array[RegExp, string]`
-			);
+			// console.assert(
+			// 	config?.rules && !Array.isArray(config.rules),
+			// 	`
+			// config is optional but when it's defined as an Object{rules, extend}
+			// the "rules" property must be define as a tuple of type Array[RegExp, string]`
+			// );
 		}
 	}
 
