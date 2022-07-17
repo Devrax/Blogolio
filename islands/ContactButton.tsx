@@ -38,8 +38,13 @@ function processRedirection(contact: ContactRef, event: any) {
 	const anchorRef: HTMLAnchorElement = event.current!;
 	anchorRef.target = "_blank";
 	anchorRef.href = contact.siteUrl;
-	if (contact.siteName === "Gmail") {
-		anchorRef.href = "mailto:" + contact.siteUrl + "@" + "gmail.com";
+	switch (contact.siteName) {
+		case "Gmail":
+			anchorRef.href = "mailto:" + contact.siteUrl + "@" + "gmail.com";
+			break;
+		case "Blog":
+			anchorRef.rel = "next";
+			break;
 	}
 	anchorRef.click();
 }
