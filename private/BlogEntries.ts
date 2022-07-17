@@ -1,10 +1,11 @@
 import { HandlerContext, Handlers } from "$fresh/server.ts";
-import { MarkdownProcessor } from "@utils/markdown-parser/markdown-parser.ts";
+import { MarkdownMetaEnum } from "../enums/MarkdownMetaSignature.ts";
+import { MarkdownMeta } from "../interfaces/MarkdownMeta.ts";
 
-function createMarkdownMapping(): Record<string, string>[] {
+function createMarkdownMapping(): MarkdownMeta[] {
 	try {
 		const path = "./static/markdown",
-			mappedJSON = [];
+			mappedJSON: MarkdownMeta[] = [];
 
 		for (const dir of Deno.readDirSync(path)) {
 			if (dir.isFile && dir.name.includes(".md")) {
@@ -17,12 +18,15 @@ function createMarkdownMapping(): Record<string, string>[] {
 						.trim()
 						.split("\n")
 						.reduce((initial, currentValue) => {
-							const [key, value] = currentValue.split("=");
+							const [key, value] = currentValue.split("=") as [
+								MarkdownMetaEnum,
+								string
+							];
 							initial[key] = value.trim();
 							return initial;
-						}, {} as Record<string, string>);
-					console.log(map);
-					mappedJSON.push(map);
+						}, {} as { [key in MarkdownMetaEnum]: string | Date });
+
+					mappedJSON.push(map as MarkdownMeta);
 				}
 			}
 		}
