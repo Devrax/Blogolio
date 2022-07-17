@@ -9,21 +9,21 @@ function createMarkdownMapping(): Record<string, string>[] {
 		for (const dir of Deno.readDirSync(path)) {
 			if (dir.isFile && dir.name.includes(".md")) {
 				const content = Deno.readTextFileSync(`${path}/${dir.name}`),
-					content2html = new MarkdownProcessor({
-						rules: [[/<--\n*([^]+)\n*!-->/gm, "<map>$1<map>"]],
-						extend: false,
-					}).parseToHTML(content);
+					metaContent = content.match(/<--\n*([^]+)\n*!-->/gm);
 
-				const metaContent = content2html.split("<map>")[1].trim();
-
-				const map = metaContent
-					.split("\n")
-					.reduce((initial, currentValue) => {
-						const [key, value] = currentValue.split("=");
-						initial[key] = value.trim();
-						return initial;
-					}, {} as Record<string, string>);
-				mappedJSON.push(map);
+				if (metaContent != null && metaContent.length > 0) {
+					const map = metaContent[0]
+						.replace(/<--|!-->/g, "")
+						.trim()
+						.split("\n")
+						.reduce((initial, currentValue) => {
+							const [key, value] = currentValue.split("=");
+							initial[key] = value.trim();
+							return initial;
+						}, {} as Record<string, string>);
+					console.log(map);
+					mappedJSON.push(map);
+				}
 			}
 		}
 		return mappedJSON;
