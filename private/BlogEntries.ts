@@ -9,7 +9,6 @@ async function createMarkdownMapping(): Promise<MarkdownMeta[]> {
 			mappedJSON: MarkdownMeta[] = [];
 
 		for await (const dir of Deno.readDir(path)) {
-			console.log(dir);
 			if (dir.isFile && dir.name.includes(".md")) {
 				const content = await Deno.readTextFile(`${path}/${dir.name}`),
 					metaContent = content.match(/<--\n*([^]+)\n*!-->/gm);
