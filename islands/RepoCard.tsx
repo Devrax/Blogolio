@@ -31,7 +31,9 @@ export default function RepoCard(repo: GithubUserRepo) {
 						<img class={tw`mr-1 mt-1`} src={shieldBadge(topic)} />
 					))}
 				</span>
-				<span class={tw`text-gray-300 text-shadow drop-shadow`}>
+				<span
+					class={tw`text-gray-300 text-shadow drop-shadow relative z-10`}
+				>
 					{textShorter(repo?.description)}
 				</span>
 			</div>
