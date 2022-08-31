@@ -7,9 +7,14 @@ import { textShorter } from "../utils/textShorter.ts";
 import { GithubUserRepo } from "../interfaces/GithubUserRepo.ts";
 
 export default function RepoCard(repo: GithubUserRepo) {
+	const href = (url: string) => {
+		window.open(url, "_blank", "noopener");
+	};
+
 	return (
 		<section
-			class={tw`min-w-full h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl`}
+			onClick={() => href(repo.html_url)}
+			class={tw`min-w-full h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl hover:scale-110 transition active:scale-100`}
 		>
 			<div
 				class={tw`p-2 border border-slate-700 rounded-xl h-full relative ext-${repo?.language?.toLocaleLowerCase()}`}
