@@ -2,7 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { shieldBadge } from "../utils/badgeShields.ts";
-import { timeAgo } from "../utils/timeAgo.ts";
+import timeDifference from "@tamago";
 import { textShorter } from "../utils/textShorter.ts";
 import { GithubUserRepo } from "../interfaces/GithubUserRepo.ts";
 
@@ -27,7 +27,10 @@ export default function RepoCard(repo: GithubUserRepo) {
 					</h1>
 					<span class={tw`flex items-center`}>
 						<p class={tw`text-slate-500 text-xs align-middle`}>
-							{timeAgo(repo?.created_at)}
+							{timeDifference(
+								new Date(),
+								new Date(repo?.created_at)
+							)}
 						</p>
 					</span>
 				</span>

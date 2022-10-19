@@ -3,7 +3,7 @@ import { h } from "preact";
 import { tw } from "@twind";
 import { MarkdownMeta } from "@interfaces/MarkdownMeta.ts";
 import { shieldBadge } from "@utils/badgeShields.ts";
-import { timeAgo } from "@utils/timeAgo.ts";
+import timeDifference from "@tamago";
 
 export default function BlogCard(entry: MarkdownMeta) {
 	return (
@@ -26,7 +26,8 @@ export default function BlogCard(entry: MarkdownMeta) {
 					{entry?.title}
 				</h1>
 				<p class={tw`text-orange-500 text-xs`}>
-					{entry?.author} - {timeAgo(entry?.creationAt)}
+					{entry?.author} -{" "}
+					{timeDifference(new Date(), new Date(entry?.creationAt))}
 				</p>
 				<div class={tw`flex mt-3 overflow-x-scroll`}>
 					{entry.keywords.split(",").map((keyword) => (
