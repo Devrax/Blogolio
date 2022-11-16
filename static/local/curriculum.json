@@ -23,10 +23,10 @@
 				"title": "Portfolio",
 				"details": [
 					{
-						"leadText": "Banking Empresarial BHD",
+						"leadText": "Confidential",
 						"leadStatus": "Published",
-						"description": "Application to facilitate and manage banking processes that were traditionally carried out by staff in a branch for the bank's clients.",
-						"topics": ["Angular", "Ionic"]
+						"description": "Brief: Application to facilitate and manage banking processes that were traditionally carried out by staff in a branch for the bank's clients.",
+						"topics": ["confidential"]
 					}
 				]
 			}
