@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { MarkdownMeta } from "@interfaces/MarkdownMeta.ts";
 import { shieldBadge } from "@utils/badgeShields.ts";
 import timeDifference from "@tamago";
@@ -11,29 +8,29 @@ export default function BlogCard(entry: MarkdownMeta) {
 			onClick={() => {
 				location.assign(`/blog/${entry.name}`);
 			}}
-			class={tw`bg-slate-800 border border-slate-900 drop-shadow-xl hover:scale-105 active:scale-90 max-w-full overflow-hidden rounded-xl transform-gpu transition-transform`}
+			class="bg-slate-800 border border-slate-900 drop-shadow-xl hover:scale-105 active:scale-90 max-w-full overflow-hidden rounded-xl transform-gpu transition-transform"
 		>
 			<img
-				class={tw`h-40 max-h-40 object-center object-cover w-full`}
+				class="h-40 max-h-40 object-center object-cover w-full"
 				src={entry.thumbnail}
 				alt={`${entry.title} image`}
 			/>
-			<div class={tw`p-5 text-white`}>
+			<div class="p-5 text-white">
 				<h1
-					class={tw`text-xl truncate text-shadow drop-shadow`}
+					class="text-xl truncate text-shadow drop-shadow"
 					title={entry?.title}
 				>
 					{entry?.title}
 				</h1>
-				<p class={tw`text-orange-500 text-xs`}>
+				<p class="text-orange-500 text-xs">
 					{entry?.author} -{" "}
 					{timeDifference(new Date(), new Date(entry?.creationAt))}
 				</p>
-				<div class={tw`flex mt-3 overflow-x-scroll`}>
+				<div class="flex mt-3 overflow-x-scroll">
 					{entry.keywords.split(",").map((keyword) => (
 						<img
 							src={shieldBadge(keyword)}
-							class={tw`mr-2`}
+							class="mr-2"
 							alt={keyword}
 						/>
 					))}
