@@ -1,6 +1,5 @@
-import { IS_BROWSER } from "$fresh/runtime.ts";
-import { Configuration, setup } from "twind";
-export * from "twind";
+import { Options } from "$fresh/plugins/twind.ts";
+
 const colors = {
 	slate: {
 		"50": "#F8FAFC",
@@ -16,7 +15,8 @@ const colors = {
 	},
 };
 
-export const config: Configuration = {
+export default {
+	selfURL: import.meta.url,
 	darkMode: "class",
 	mode: "silent",
 	theme: {
@@ -25,5 +25,4 @@ export const config: Configuration = {
 			colors,
 		},
 	},
-};
-if (IS_BROWSER) setup(config);
+} as Options;

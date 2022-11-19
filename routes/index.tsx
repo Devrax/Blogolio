@@ -1,7 +1,3 @@
-/** @jsx h */
-/** @jsxFrag Fragment */
-import { Fragment, h } from "preact";
-import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 import { GithubUserData } from "@interfaces/GithubUser.ts";
@@ -59,40 +55,26 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				<link rel="stylesheet" href="/css/text-utilities.css" />
 				{/* <script src="https://cdn.tailwindcss.com"></script> */}
 			</Head>
-			<main
-				class={tw`bg-slate-800 min-h-screen relative overflow-hidden`}
-			>
+			<main class="bg-slate-800 min-h-screen relative overflow-hidden">
 				<header class="js-bg" id="start">
-					<article
-						class={tw`p-10 lg:flex lg:max-w-screen-xl lg:mx-auto`}
-					>
-						<section
-							class={tw`rounded-lg overflow-hidden w-48 mx-auto lg:w-56`}
-						>
+					<article class="p-10 lg:flex lg:max-w-screen-xl lg:mx-auto">
+						<section class="rounded-lg overflow-hidden w-48 mx-auto lg:w-56">
 							<img
 								src={user?.avatar_url}
 								alt={user ? `${user?.name}'s pic` : "No user"}
 							/>
 						</section>
 
-						<section
-							class={tw`w-full text-center lg:text-left lg:ml-2 lg:flex lg:flex-col lg:justify-end`}
-						>
-							<h1
-								class={tw`text-white text-5xl lg:drop-shadow-2xl lg:text-shadow lg:text-6xl`}
-							>
+						<section class="w-full text-center lg:text-left lg:ml-2 lg:flex lg:flex-col lg:justify-end">
+							<h1 class="text-white text-5xl lg:drop-shadow-2xl lg:text-shadow lg:text-6xl">
 								{user?.name || "User not found"}
 							</h1>
 							<hr class="hidOnSmallDevices" />
-							<span class={tw`lg:flex`}>
-								<p
-									class={tw`text-yellow-500 text-shadow drop-shadow-2xl lg:mr-10 lg:w-1/2 lg:flex-1`}
-								>
+							<span class="lg:flex">
+								<p class="text-yellow-500 text-shadow drop-shadow-2xl lg:mr-10 lg:w-1/2 lg:flex-1">
 									{user?.bio || "No bio"}
 								</p>
-								<span
-									class={tw`text-white hidOnSmallDevices lg:block`}
-								>
+								<span class="text-white hidOnSmallDevices lg:block">
 									{sections.map((section, pos, arr) => (
 										<>
 											<a href={"#" + section.id}>
@@ -110,10 +92,8 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 						</section>
 					</article>
 
-					<article class={tw`px-10 max-w-screen-xl mx-auto`}>
-						<section
-							class={tw`justify-between flex text-white lg:w-1/3`}
-						>
+					<article class="px-10 max-w-screen-xl mx-auto">
+						<section class="justify-between flex text-white lg:w-1/3">
 							{contacts.map((contact) => (
 								<ContactButton
 									{...contact}
@@ -124,15 +104,15 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 					</article>
 				</header>
 
-				<div class={tw`p-10 lg:flex lg:max-w-screen-xl lg:mx-auto`}>
-					<article class={tw`lg:flex-1 lg:mr-10`}>
+				<div class="p-10 lg:flex lg:max-w-screen-xl lg:mx-auto">
+					<article class="lg:flex-1 lg:mr-10">
 						{sections.map((section) => (
-							<section class={tw`mb-10`}>
-								<div class={tw`lg:mb-3`} id={section.id}>
-									<h1 class={tw`text-white text-shadow`}>
+							<section class="mb-10">
+								<div class="lg:mb-3" id={section.id}>
+									<h1 class="text-white text-shadow">
 										<a
 											href={"#" + section.id}
-											class={tw`text-3xl font-bold text-shadow drop-shadow-xl lg:text-4xl`}
+											class="text-3xl font-bold text-shadow drop-shadow-xl lg:text-4xl"
 										>
 											{section.title}
 										</a>
@@ -140,7 +120,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 								</div>
 								<hr />
 								<br />
-								<div class={tw`${section.classContent}`}>
+								<div class={section.classContent}>
 									{section.content}
 								</div>
 							</section>
@@ -149,14 +129,12 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 
 					<aside>
 						<div id="skills">
-							<h1
-								class={tw`text-white text-4xl font-bold text-shadow lg:drop-shadow-xl lg:mb-3`}
-							>
+							<h1 class="text-white text-4xl font-bold text-shadow lg:drop-shadow-xl lg:mb-3">
 								Skills
 							</h1>
 							<hr />
 							<br />
-							<article class={tw`lg:mb-10`}>
+							<article class="lg:mb-10">
 								{skills.map((skill) => (
 									<SkillSection {...skill} />
 								))}

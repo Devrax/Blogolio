@@ -1,18 +1,19 @@
 {
-	"imports": {
-		"$fresh/": "https://deno.land/x/fresh@1.0.0/",
-		"preact": "https://esm.sh/preact@10.8.1",
-		"preact/": "https://esm.sh/preact@10.8.1/",
-		"preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.1",
-		"@twind": "./utils/twind.ts",
-		"twind": "https://esm.sh/twind@0.16.17",
-		"twind/": "https://esm.sh/twind@0.16.17/",
-		"env": "https://deno.land/std@0.147.0/dotenv/mod.ts",
-		"@env": "./utils/dotenv.ts",
-		"@interfaces/": "./interfaces/",
-		"@utils/": "./utils/",
-		"@local/": "./static/local/",
-		"@marked": "https://esm.sh/marked@4.0.18",
-		"@tamago": "https://deno.land/x/tamago@release/src/utils/timeDifference.ts"
-	}
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.1.2/",
+    "preact": "https://esm.sh/preact@10.11.0",
+    "preact/": "https://esm.sh/preact@10.11.0/",
+    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.4",
+    "twind": "https://esm.sh/twind@0.16.17",
+    "twind/": "https://esm.sh/twind@0.16.17/",
+    "env": "https://deno.land/std@0.147.0/dotenv/mod.ts",
+    "@env": "./utils/dotenv.ts",
+    "@interfaces/": "./interfaces/",
+    "@utils/": "./utils/",
+    "@local/": "./static/local/",
+    "@marked": "https://esm.sh/marked@4.0.18",
+    "@tamago": "https://deno.land/x/tamago@release/src/utils/timeDifference.ts",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1"
+  }
 }

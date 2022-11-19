@@ -1,9 +1,5 @@
-/** @jsx h */
-/** @jsxFrag Fragment */
-import { h, Fragment } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
-import { tw } from "@twind";
 import { handler as BlogEntries } from "../../private/BlogEntries.ts";
 import { MarkdownMeta } from "@interfaces/MarkdownMeta.ts";
 import { GithubUser } from "@interfaces/GithubUser.ts";
@@ -31,15 +27,15 @@ export default function BlogHome({
 				<link rel="stylesheet" href="/css/text-utilities.css" />
 			</Head>
 			<main
-				class={tw`bg-slate-800 min-h-screen relative overflow-hidden`}
+				class="bg-slate-800 min-h-screen relative overflow-hidden"
 			>
-				<header class={tw`pt-10 px-10 lg:max-w-screen-xl lg:mx-auto`}>
+				<header class="pt-10 px-10 lg:max-w-screen-xl lg:mx-auto">
 					<nav>
-						<ul class={tw`flex items-center justify-end`}>
-							<li class={tw`mr-5`}>
+						<ul class="flex items-center justify-end">
+							<li class="mr-5">
 								<a
 									rel="prefetch preload"
-									class={tw`hover:underline decoration-solid text-white font-bold text-xl hover:text-yellow-500 hover:fill-yellow-500 cursor-pointer`}
+									class="hover:underline decoration-solid text-white font-bold text-xl hover:text-yellow-500 hover:fill-yellow-500 cursor-pointer"
 									href="/"
 								>
 									Home
@@ -52,7 +48,7 @@ export default function BlogHome({
 									rel="noopener"
 								>
 									<img
-										class={tw`rounded-full w-10`}
+										class="rounded-full w-10"
 										src={githubUser?.avatar_url}
 										alt={githubUser?.name}
 									/>
@@ -61,16 +57,16 @@ export default function BlogHome({
 						</ul>
 					</nav>
 				</header>
-				<article class={tw`p-10 lg:max-w-screen-xl lg:mx-auto`}>
+				<article class="p-10 lg:max-w-screen-xl lg:mx-auto">
 					<section id="blog-entries">
-						<div class={tw`mb-10`}>
+						<div class="mb-10">
 							<h1
-								class={tw`text-white text-shadow drop-shadow text-4xl text-center`}
+								class="text-white text-shadow drop-shadow text-4xl text-center"
 							>
 								Welcome to my Blog
 							</h1>
 						</div>
-						<div class={tw`grid-projects`}>
+						<div class="grid-projects">
 							{blogList.map((entry) => (
 								<BlogCard {...entry} />
 							))}

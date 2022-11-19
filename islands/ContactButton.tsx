@@ -1,7 +1,4 @@
-/** @jsx h */
-import { h } from "preact";
 import { useRef } from "preact/hooks";
-import { tw } from "@utils/twind.ts";
 import { ContactRef } from "@interfaces/ContactRef.ts";
 
 interface ContactUser extends ContactRef {
@@ -14,16 +11,16 @@ export default function ContactButton(contact: ContactUser) {
 	return (
 		<span
 			onClick={() => processRedirection(contact, anchorRef)}
-			class={tw`flex flex-col items-center fill-white hover:text-yellow-500 hover:fill-yellow-500 cursor-pointer`}
+			class="flex flex-col items-center fill-white hover:text-yellow-500 hover:fill-yellow-500 cursor-pointer"
 			title={`${contact.userName}'s ${contact.siteName}`}
 		>
 			<a
-				class={tw`hidden`}
+				class="hidden"
 				ref={anchorRef}
 				rel="noopener author external noreferrer"
 			></a>
 			<span
-				class={tw`w-6 h-6 block animate-bounce`}
+				class="w-6 h-6 block animate-bounce"
 				dangerouslySetInnerHTML={{ __html: contact.iconPath }}
 			></span>
 			<span>{contact.siteName}</span>
