@@ -99,11 +99,12 @@
 }
 
 .slid {
-	will-change: transform, border-radius;
-	transition: transform 1s, border-radius 3s;
+	will-change: transform, border-radius, opacity;
+	transition: transform 1s, border-radius 3s, opacity 1s;
 }
 
 .hiddenFooter {
 	border-top-left-radius: 34px;
-	transform: translate(83%, 0px);
+	opacity: 0.5;
+	transform: translate(calc(100vw - 105px), 0px);
 }

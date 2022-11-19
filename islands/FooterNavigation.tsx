@@ -4,7 +4,7 @@ export default function FooterNavigation() {
 	const [hiddeFooter, setter] = useState(true);
 	return (
 		<div
-			class={`flex p-5 bg-slate-700 fixed w-full bottom-0 lg:hidden slid ${
+			class={`flex p-5 bg-slate-700 fixed w-full z-10 bottom-0 lg:hidden slid ${
 				hiddeFooter ? "hiddenFooter" : ""
 			}`}
 		>
@@ -17,12 +17,17 @@ export default function FooterNavigation() {
 				{" "}
 				←{" "}
 			</span>
-			<div class="bg-slate-700 flex flex-1 items-center justify-beeen pr-10 text-white">
+			<span class={`p-2 rounded-lg mr-5`}>
+				<a
+					class="mx-2 drop-shadow font-bold text-shadow text-white"
+					href="#start"
+				>
+					{" "}
+					↑{" "}
+				</a>
+			</span>
+			<div class="bg-slate-700 flex flex-1 items-center justify-between pr-10 text-white">
 				{[
-					{
-						title: "↑",
-						id: "start",
-					},
 					{
 						title: "Experience",
 						id: "experience",
