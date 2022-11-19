@@ -66,10 +66,10 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 						</section>
 
 						<section class="w-full text-center lg:text-left lg:ml-2 lg:flex lg:flex-col lg:justify-end">
-							<h1 class="text-white text-5xl lg:drop-shadow-2xl lg:text-shadow lg:text-6xl">
+							<h1 class="text-white z-10 text-5xl lg:drop-shadow-2xl lg:text-shadow lg:text-6xl">
 								{user?.name || "User not found"}
 							</h1>
-							<hr class="hidOnSmallDevices" />
+							<hr class="hidOnSmallDevices mb-2" />
 							<span class="lg:flex">
 								<p class="text-yellow-500 text-shadow drop-shadow-2xl lg:mr-10 lg:w-1/2 lg:flex-1">
 									{user?.bio || "No bio"}
@@ -104,7 +104,22 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 					</article>
 				</header>
 
-				<div class="p-10 lg:flex lg:max-w-screen-xl lg:mx-auto">
+				<div class="p-10 lg:flex lg:max-w-screen-xl lg:mx-auto lg:flex-row-reverse">
+					<aside class="mb-10">
+						<div id="skills">
+							<h1 class="text-white text-4xl font-bold text-shadow lg:drop-shadow-xl lg:mb-3">
+								Skills
+							</h1>
+							<hr />
+							<br />
+							<article class="lg:mb-10">
+								{skills.map((skill) => (
+									<SkillSection {...skill} />
+								))}
+							</article>
+						</div>
+					</aside>
+
 					<article class="lg:flex-1 lg:mr-10">
 						{sections.map((section) => (
 							<section class="mb-10">
@@ -126,21 +141,6 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 							</section>
 						))}
 					</article>
-
-					<aside>
-						<div id="skills">
-							<h1 class="text-white text-4xl font-bold text-shadow lg:drop-shadow-xl lg:mb-3">
-								Skills
-							</h1>
-							<hr />
-							<br />
-							<article class="lg:mb-10">
-								{skills.map((skill) => (
-									<SkillSection {...skill} />
-								))}
-							</article>
-						</div>
-					</aside>
 				</div>
 				<br />
 				<FooterNavigation />
