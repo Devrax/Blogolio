@@ -246,6 +246,15 @@ export const badges = [
 		logoColor: "white",
 		label: "Rust",
 	},
+	{
+		key: ["chrome-extension", "chrome-webstore"],
+		labelColor: "black",
+		color: "green",
+		style: "plastic",
+		logo: "googlechrome",
+		logoColor: "white",
+		label: "Extension",
+	},
 ];
 
 export function shieldBadge(language: string) {
