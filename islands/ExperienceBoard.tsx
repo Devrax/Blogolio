@@ -15,11 +15,6 @@ export default function ExperienceBoard(experience: Experience) {
 	const timeFormat = (t: Date | string, locale = "en") =>
 		new Date(t).toLocaleDateString(locale);
 
-	const mergeTexts =
-		(joiner: string) =>
-		(...args: string[]): string =>
-			args.filter(Boolean).join(joiner);
-
 	return (
 		<section class="text-white text-justify mb-10">
 			<h1 class="text-xl lg:text-2xl">
@@ -27,12 +22,12 @@ export default function ExperienceBoard(experience: Experience) {
 				{experience?.positionRole}
 			</h1>
 			<p class="text-gray-300 text-xs mb-2 block">
-				{mergeTexts(" - ")(
+				{[
 					timeFormat(experience?.startDate),
 					experience?.endDate
 						? timeFormat(experience.endDate)
-						: "Present"
-				)}
+						: "Present",
+				].join(" - ")}
 			</p>
 			<div>
 				{experience?.experienceDescriptions.map((exp) => (
@@ -44,8 +39,23 @@ export default function ExperienceBoard(experience: Experience) {
 						<ul class="list-disc pl-5">
 							{exp?.details?.map((detail) => (
 								<li class="mb-2 text-sm lg:text-base">
-									{mergeTexts(": ")(
-										detail.leadText!,
+									{detail.leadText ? (
+										<a
+											title={detail.description}
+											href={detail.link}
+											rel="noopener noreferrer"
+											target="_blank"
+											class={
+												"cursor-pointer " +
+												(detail.link
+													? "text-yellow-500"
+													: "cursor-not-allowed")
+											}
+										>
+											{detail?.leadText ||
+												detail?.description}
+										</a>
+									) : (
 										detail.description
 									)}
 									{Array.isArray(detail?.topics) && (

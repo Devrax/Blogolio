@@ -12,15 +12,13 @@ export default function RepoCard(repo: GithubUserRepo) {
 	return (
 		<section
 			onClick={() => href(repo.html_url)}
-			class="min-w-full h-44 overflow-hidden shadow-slate-900 shadow-md rounded-xl hover:scale-110 transition active:scale-100"
+			class="min-w-full h-44 overflow-hidden cursor-pointer shadow-slate-900 shadow-md rounded-xl hover:scale-110 transition active:scale-100"
 		>
 			<div
 				class={tw`p-2 border border-slate-700 rounded-xl h-full relative ext-${repo?.language?.toLocaleLowerCase()}`}
 			>
 				<span class="flex">
-					<h1
-						class="text-white text-shadow text-xl drop-shadow-2xl flex-1"
-					>
+					<h1 class="text-white text-shadow text-xl drop-shadow-2xl flex-1">
 						{repo?.name}
 					</h1>
 					<span class="flex items-center">
@@ -37,9 +35,7 @@ export default function RepoCard(repo: GithubUserRepo) {
 						<img class="mr-1 mt-1" src={shieldBadge(topic)} />
 					))}
 				</span>
-				<span
-					class="text-gray-300 text-shadow drop-shadow relative z-10"
-				>
+				<span class="text-gray-300 text-shadow drop-shadow relative z-10">
 					{textShorter(repo?.description)}
 				</span>
 			</div>

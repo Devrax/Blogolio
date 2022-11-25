@@ -19,5 +19,6 @@ export interface ExperienceDetail {
 	leadText?: string;
 	leadStatus?: LeadStatus | string;
 	description: string;
+	link?: string;
 	topics?: string[];
 }
