@@ -50,6 +50,13 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
 				<title>{meta.title}</title>
 				<meta content={meta.description} name="description" />
 				<meta name={user?.name} content="Author name" />
+				<meta
+					property="og:title"
+					content={`${user?.name}'s curriculum`}
+				/>
+				<meta property="og:type" content="profile" />
+				<meta property="og:url" content="https://devrafx.deno.dev/" />
+				<meta property="og:image" content={user.avatar_url} />
 				<link rel="stylesheet" href="/css/style.css" />
 				<link rel="stylesheet" href="/css/grid.css" />
 				<link rel="stylesheet" href="/css/text-utilities.css" />
