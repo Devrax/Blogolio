@@ -14,6 +14,7 @@ export const handler: Handlers = {
 					GithubUserGET(),
 					GithubUserRepositoriesGET(),
 				]);
+				console.log(githubUser)
 			if (githubUser.status === 404 || githubRepos.status === 404) {
 				return ctx.render(null);
 			}

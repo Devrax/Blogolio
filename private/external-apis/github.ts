@@ -1,9 +1,6 @@
-import { env } from "@env";
-
 const githubApiBaseUrl = "https://api.github.com";
-const gitCredentials =
-	env.GITHUB_CREDENTIALS || Deno.env.get("GITHUB_CREDENTIALS");
-const gitUserName = env.GITHUB_USERNAME || Deno.env.get("GITHUB_USERNAME");
+const gitCredentials = Deno.env.get("GITHUB_CREDENTIALS");
+const gitUserName = Deno.env.get("GITHUB_USERNAME");
 const githubApiHeaders = new Headers({
 	Accept: "application/vnd.github+json",
 	...(gitCredentials
