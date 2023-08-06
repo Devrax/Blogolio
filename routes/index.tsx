@@ -3,6 +3,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { GithubUserData } from "@interfaces/GithubUser.ts";
 import { handler as homeHandler } from "../private/HomeHandler.ts";
 import SideProfiler from "../islands/SideProfile.tsx";
+import AnimatedBackgroundIcon from "../islands/AnimatedBackgroundIcon.tsx";
 export const handler: Handlers = homeHandler;
 
 export default function Home({ data }: PageProps<GithubUserData | null>) {
@@ -11,6 +12,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
       title: user?.login,
       description: user?.html_url,
     };
+
   return (
     <>
       <Head>
@@ -27,12 +29,14 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         />
         <meta property="og:locale" content="en_US" />
         <link rel="stylesheet" href="/styles/animations.css" />
+        <link rel="stylesheet" href="/styles/animations/animated-background.css" />
       </Head>
-      <main class="bg-slate-800">
+      <main class="bg-slate-800 relative overflow-hidden">
+        <AnimatedBackgroundIcon />
         <article class="flex h-[100dvh] flex-col md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
           <section
             id="user-information"
-            class="bg-slate-800 flex-1 text-white p-8 overflow-hidden h-[calc(100dvh-64px)] md:h-[100dvh]"
+            class="flex-1 text-white px-8 pb-8 overflow-hidden h-[calc(100dvh-64px)] md:h-[100dvh]"
           >
             <section class="relative faded-text overflow-auto h-[calc(100%+64px)] pb-[64px] md:pb-0 md:h-full md:flex md:flex-col md:justify-center lg:pr-12">
               <h2 id="user-github-name" style="--delay-ms: 0ms;" class="lily-font text-5xl my-5 mt-8 drop-shadow-xl font-bold">

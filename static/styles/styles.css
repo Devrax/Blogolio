@@ -53,7 +53,8 @@ html {
   content: '';
   position: fixed;
   width: 85%;
-  top: 30px;
+  top: 0px;
+  left: 0;
   height: 30px;
   background: linear-gradient(#1e293b, #1e293b00);
   z-index: 1;

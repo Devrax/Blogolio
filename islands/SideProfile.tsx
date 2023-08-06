@@ -21,7 +21,7 @@ export default function SideProfiler({ user }: SideProfiler) {
     <section
       id="user-profile"
       style="--delay-ms: 0ms;"
-      class="bg-slate-800 flex justify-center md:flex-col md:items-center md:max-h-[100dvh] lg:px-12"
+      class="flex justify-center md:flex-col md:items-center md:max-h-[100dvh] lg:px-12"
     >
       <button
         id="github-href"
