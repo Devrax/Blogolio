@@ -1,0 +1,57 @@
+
+#user-profile,.faded-text::after {
+   max-height: 0;
+   animation: fromBottom 1s var(--delay-ms, 0) forwards ease-in-out;
+ }
+ 
+ @keyframes fromBottom {
+   100% {
+     opacity: 1;
+     max-height: 64px;
+   }
+ }
+ 
+ #github-href,
+ #profile-github-pic,
+ #linkedin-href {
+   opacity: 0;
+   animation: orderedFadeIn 1s var(--delay-ms) forwards ease-in-out;
+ }
+ 
+ @keyframes orderedFadeIn {
+   0% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ #user-github-name, .markdown {
+   transform: translate3d(0px, -20px, 0px);
+   opacity: 0;
+   animation: fromTop 500ms var(--delay-ms) forwards ease-in;
+ }
+ 
+ @keyframes fromTop {
+   0% {
+     transform: translate3d(0px, -20px, 0px);
+   }
+   100% {
+     opacity: 1;
+     transform: translate3d(0px, 0px, 0px);
+   }
+ }
+
+@media screen and (min-width: 768px) {
+   #user-profile,.faded-text::after {
+      max-height: 100dvh;
+      animation: fadeIn 1s var(--delay-ms, 0) forwards ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      100% {
+         opacity: 1;
+      }
+    }
+}

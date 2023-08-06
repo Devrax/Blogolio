@@ -1,6 +1,7 @@
 {
+  "lock": false,
   "tasks": {
-    "start": "deno run -A --watch dev.ts",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
   "lint": {
@@ -18,13 +19,11 @@
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.0",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.1.3",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
+    "$std/": "https://deno.land/std@0.193.0/",
+    "@interfaces/": "./interfaces/",
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
-    "@interfaces/": "./interfaces/",
-    "@utils/": "./utils/",
-    "@local/": "./static/local/",
-    "@marked": "https://esm.sh/marked@4.0.18",
-    "@tamago": "https://deno.land/x/tamago@release/src/utils/timeDifference.ts"
+    "markdown": "https://deno.land/x/gfm@0.2.5/mod.ts"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

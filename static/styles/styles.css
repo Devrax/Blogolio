@@ -1,0 +1,72 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: boder-box;
+}
+* {
+  margin: 0;
+}
+button {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+button, [role="button"] {
+  cursor: pointer;
+}
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
+}
+img,
+svg {
+  display: block;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.faded-text::after {
+  content: '';
+  position: fixed;
+  bottom: 55px;
+  width: 85%;
+  height: 30px;
+  opacity: 0;
+  background: linear-gradient(#1e293b00, #1e293b);
+  --delay-ms: 1000ms;
+}
+
+.faded-text::before {
+  content: '';
+  position: fixed;
+  width: 85%;
+  top: 30px;
+  height: 30px;
+  background: linear-gradient(#1e293b, #1e293b00);
+  z-index: 1;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  html {
+    font-size: 24px;
+  }
+}

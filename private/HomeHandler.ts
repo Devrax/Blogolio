@@ -5,6 +5,7 @@ import {
 	GithubUserRepositoriesGET,
 	GithubUserGET,
 } from "./external-apis/github.ts";
+import { getMarkdown } from "../markdown/getMarkdown.ts";
 
 export const handler: Handlers = {
 	async GET(_, ctx) {
@@ -14,7 +15,6 @@ export const handler: Handlers = {
 					GithubUserGET(),
 					GithubUserRepositoriesGET(),
 				]);
-				console.log(githubUser)
 			if (githubUser.status === 404 || githubRepos.status === 404) {
 				return ctx.render(null);
 			}
@@ -27,7 +27,7 @@ export const handler: Handlers = {
 				)
 				.reverse();
 
-			return ctx.render({ ...user, repos } as GithubUserData);
+			return ctx.render({ ...user, repos, cv: await getMarkdown('cv') } as GithubUserData);
 		} catch (err) {
 			console.log(err);
 			return ctx.render(null);
