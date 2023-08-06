@@ -25,6 +25,7 @@ export default function SideProfiler({ user }: SideProfiler) {
     >
       <button
         id="github-href"
+        aria-label={`Go to ${user.name}'s Github`}
         disabled={!IS_BROWSER}
         onClick={() => anchorBehavior('https://github.com/Devrax?tab=repositories')}
         style="--delay-ms: 1300ms;"
@@ -47,6 +48,7 @@ export default function SideProfiler({ user }: SideProfiler) {
       </div>
       <button
         id="linkedin-href"
+        aria-label={`Go to ${user.name}'s LinkedIn`}
         disabled={!IS_BROWSER}
          onClick={() => anchorBehavior('https://www.linkedin.com/in/rafael-alexander-mejia/')}
         style="--delay-ms: 1600ms;"

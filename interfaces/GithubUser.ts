@@ -36,6 +36,5 @@ export interface GithubUser {
 }
 
 export interface GithubUserData extends GithubUser {
-	repos: GithubUserRepo[];
 	cv?: string;
 }
