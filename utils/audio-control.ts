@@ -1,0 +1,1 @@
+export const audioPlayer = (src: string) => new Audio(src);

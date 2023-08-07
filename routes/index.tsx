@@ -7,7 +7,7 @@ import AnimatedBackgroundIcon from "../islands/AnimatedBackgroundIcon.tsx";
 export const handler: Handlers = homeHandler;
 
 export default function Home({ data }: PageProps<GithubUserData | null>) {
-  const { repos, ...user } = (data as GithubUserData) || {},
+  const { ...user } = (data as GithubUserData) || {},
     meta = {
       title: user?.login,
       description: user?.html_url,

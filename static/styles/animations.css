@@ -1,7 +1,7 @@
 
 #user-profile,.faded-text::after {
    max-height: 0;
-   animation: fromBottom 1s var(--delay-ms, 0) forwards ease-in-out;
+   animation: fromBottom 500ms var(--delay-ms, 0) forwards ease-in-out;
  }
  
  @keyframes fromBottom {
@@ -12,10 +12,12 @@
  }
  
  #github-href,
+ #mail-box,
  #profile-github-pic,
- #linkedin-href {
+ #linkedin-href,
+ #blog-entries {
    opacity: 0;
-   animation: orderedFadeIn 1s var(--delay-ms) forwards ease-in-out;
+   animation: orderedFadeIn 500ms var(--delay-ms) forwards ease-in-out;
  }
  
  @keyframes orderedFadeIn {
@@ -30,7 +32,7 @@
  #user-github-name, .markdown {
    transform: translate3d(0px, -20px, 0px);
    opacity: 0;
-   animation: fromTop 500ms var(--delay-ms) forwards ease-in;
+   animation: fromTop 300ms var(--delay-ms) forwards ease-in;
  }
  
  @keyframes fromTop {
@@ -46,7 +48,7 @@
 @media screen and (min-width: 768px) {
    #user-profile,.faded-text::after {
       max-height: 100dvh;
-      animation: fadeIn 1s var(--delay-ms, 0) forwards ease-in-out;
+      animation: fadeIn 500ms var(--delay-ms, 0) forwards ease-in-out;
     }
 
     @keyframes fadeIn {
