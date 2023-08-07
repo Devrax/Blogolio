@@ -10,12 +10,13 @@ interface SideProfiler {
 
 export default function SideProfiler({ user }: SideProfiler) {
   const anchorBehavior = (url: string, target = '_blank') => {
-    audioPlayer('/sounds/click.wav').play();
-    const a: HTMLAnchorElement = document.createElement('a');
-    a.href = url;
-    a.target = target;
-    a.rel = 'noopener external noreferrer';
-    a.click();
+    audioPlayer('/sounds/click.wav').play().finally(() => {
+      const a: HTMLAnchorElement = document.createElement('a');
+      a.href = url;
+      a.target = target;
+      a.rel = 'noopener external noreferrer';
+      a.click();
+    });
   };
 
   const doubleSound = () => {
