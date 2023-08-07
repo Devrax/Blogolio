@@ -17,7 +17,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         <title>{meta.title + ' 🐒'}</title>
         <meta content={meta.description} name="description" />
         <meta name={user?.name} content="Author name" />
-        <meta property="og:title" content={`${user?.name}'s resume`} />
+        <meta property="og:title" content={`${user?.name}'s journey as web developer`} />
         <meta property="og:type" content={`${user?.name}'s blog entries`} />
         <meta property="og:url" content="https://devrafx.deno.dev/" />
         <meta property="og:image" content="https://avartation-api.vercel.app/api?face=03&outfit=10&hair=23&accessory=02&bg=rgb(30,%2041,%2059)" />
