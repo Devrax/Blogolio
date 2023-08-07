@@ -1,0 +1,16 @@
+.fake-attributes .attribute {
+   transition: max-width 500ms ease, opacity 1000ms linear;
+   display: inline-block;
+   max-width: 0px;
+   opacity: 0;
+}
+
+.fake-attributes:hover .attribute {
+   max-width: 70px;
+   opacity: 1;
+}
+
+.fake-attributes:active .attribute {
+   max-width: 70px;
+   opacity: 1;
+}

@@ -31,7 +31,6 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         <link rel="stylesheet" href="/styles/animations.css" />
         <link rel="stylesheet" href="/styles/animations/animated-background.css" />
       </Head>
-      <body class="bg-slate-800 ">
       <main class="relative overflow-hidden">
         <AnimatedBackgroundIcon />
         <article class="flex h-[100dvh] flex-col md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
@@ -55,7 +54,6 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
           <SideProfiler user={user} />
         </article>
       </main>
-      </body>
     </>
   );
 }

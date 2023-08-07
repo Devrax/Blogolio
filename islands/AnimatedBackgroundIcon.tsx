@@ -35,7 +35,7 @@ export default function AnimatedBackgroundIcon() {
 
    return (
       <>
-         <article class="animated-icon-mosaics absolute min-h-[100dvh] flex">
+         <article class="animated-icon-mosaics absolute min-h-[100dvh] flex select-none cursor-none z-[-1]" aria-hidden>
             <section class="col-icon-mosaics w-[100vw]">
                {setMosaics.map((col) => (
                   <span class="row-icon-mosaics">

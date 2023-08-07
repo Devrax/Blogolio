@@ -2,6 +2,7 @@ import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { GithubUserData } from "@interfaces/GithubUser.ts";
 import { handler as homeHandler } from "../../private/HomeHandler.ts";
+import AnimatedBackgroundIcon from "@islands/AnimatedBackgroundIcon.tsx";
 export const handler: Handlers = homeHandler;
 
 export default function Home({ data }: PageProps<GithubUserData | null>) {
@@ -14,7 +15,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
   return (
     <>
       <Head>
-        <title>{meta.title + ' 🐒'}</title>
+        <title>{'Blog ' +meta.title + ' 🐒'}</title>
         <meta content={meta.description} name="description" />
         <meta name={user?.name} content="Author name" />
         <meta property="og:title" content={`${user?.name}'s journey as web developer`} />
@@ -26,8 +27,20 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
           content="My blog entry, I hope you find something enlightful"
         />
         <meta property="og:locale" content="en_US" />
+        <link rel="stylesheet" href="/styles/animations/animated-background.css" />
+        <link rel="stylesheet" href="/styles/blog/blog.index.css" />
       </Head>
-      <main class="bg-slate-800 relative overflow-hidden">
+      <main class="relative overflow-hidden">
+        <AnimatedBackgroundIcon />
+      <header class="p-[16px]">
+        <nav>
+          <ul>
+            <li>
+              <a href="./" class="text-white text-xl font-bold fake-attributes"><span>&lt;{ user?.name } <span class="attribute">to="./"</span> /&gt;</span></a>
+            </li>
+          </ul>
+        </nav>
+      </header>
         <article class="flex h-[100dvh] justify-center items-center md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
          <section id="banner-men-working" class="text-white font-bold text-2xl md:text-4xl lg:text-6xl text-center">
             <h1>👷🏻‍♂️🛑MAN WORKING!🏗️🚧</h1>

@@ -20,6 +20,7 @@
     "@preact/signals": "https://esm.sh/*@preact/signals@1.1.3",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
     "@utils/": "./utils/",
+    "@islands/": "./islands/",
     "$std/": "https://deno.land/std@0.193.0/",
     "@interfaces/": "./interfaces/",
     "twind": "https://esm.sh/twind@0.16.19",

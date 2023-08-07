@@ -12,7 +12,9 @@ export default function App({ Component }: AppProps) {
         <link rel="stylesheet" href="/styles/styles.css" />
         <link rel="stylesheet" href="/styles/markdown.css" />
       </Head>
-      <Component />
+      <body class="bg-slate-800 ">
+        <Component />
+      </body>
     </>
   );
 }
