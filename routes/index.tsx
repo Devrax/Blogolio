@@ -39,7 +39,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
             class="flex-1 text-white px-8 pb-8 overflow-hidden h-[calc(100dvh-64px)] md:h-[100dvh]"
           >
             <section class="relative faded-text overflow-auto h-[calc(100%+64px)] pb-[64px] md:pb-0 md:h-full md:flex md:flex-col md:justify-center lg:pr-12">
-              <h2 id="user-github-name" style="--delay-ms: 0ms;" class="lily-font text-5xl my-5 mt-8 drop-shadow-xl font-bold">
+              <h2 id="user-github-name" style="--delay-ms: 0ms;" class="text-5xl my-5 mt-8 drop-shadow-xl font-bold">
                 🦕 {user.name} 🚀
               </h2>
 

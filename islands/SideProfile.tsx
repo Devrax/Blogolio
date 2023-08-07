@@ -88,7 +88,7 @@ export default function SideProfiler({ user }: SideProfiler) {
         id="blog-entries"
         aria-label={`Go to ${user.name}'s blog entry`}
         disabled={!IS_BROWSER}
-        //  onClick={() => anchorBehavior('https://www.linkedin.com/in/rafael-alexander-mejia/')}
+         onClick={() => anchorBehavior('/blog', '_self')}
         style="--delay-ms: 500ms;"
         class="w-[35px] fill-white ml-5 focus:outline-none focus-visible:outline-none active:opacity-75 md:ml-0 md:mt-5 md:w-[40px] lg:w-[50px]"
       >
