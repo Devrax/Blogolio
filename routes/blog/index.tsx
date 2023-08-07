@@ -23,7 +23,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         <meta property="og:image" content="https://avartation-api.vercel.app/api?face=03&outfit=10&hair=23&accessory=02" />
         <meta
           property="og:description"
-          content="An online resume where you can know more about me"
+          content="My blog entry, I hope you find something enlightful"
         />
         <meta property="og:locale" content="en_US" />
       </Head>
