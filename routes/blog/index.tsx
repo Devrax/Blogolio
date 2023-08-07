@@ -20,7 +20,7 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         <meta property="og:title" content={`${user?.name}'s resume`} />
         <meta property="og:type" content={`${user?.name}'s blog entries`} />
         <meta property="og:url" content="https://devrafx.deno.dev/" />
-        <meta property="og:image" content="https://avartation-api.vercel.app/api?face=03&outfit=10&hair=23&accessory=02" />
+        <meta property="og:image" content="https://avartation-api.vercel.app/api?face=03&outfit=10&hair=23&accessory=02&bg=rgb(30,%2041,%2059)" />
         <meta
           property="og:description"
           content="My blog entry, I hope you find something enlightful"
