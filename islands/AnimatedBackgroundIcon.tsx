@@ -1,15 +1,22 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 
-export default function AnimatedBackgroundIcon() {
-   const icons = ["🦕", "🚧", "🇩🇴", "📱", "🐒", "🚀", "💻"],
+interface AnimatedBackgroundIcon {
+   heightRefernce?: number;
+   widthRefernce?: number;
+   iconsProp?: string[]
+}
+
+export default function AnimatedBackgroundIcon({ heightRefernce, widthRefernce, iconsProp }: AnimatedBackgroundIcon) {
+   const icons = iconsProp ?? ["🦕", "🚧", "🇩🇴", "📱", "🐒", "🚀", "💻"],
       setBackgroundIcons = (icons: string[]) => {
          if (!IS_BROWSER) return [];
-         const viewportWidth = document.body.clientWidth,
-            viewportHeight = document.body.clientHeight,
+         console.log("setBackground");
+         const viewportWidth = widthRefernce ?? document.body.clientWidth,
+            viewportHeight = heightRefernce ?? document.body.clientHeight,
             fixedIconPixelWidth = 20,
             fixedIconPixelHeight = 24.5;
 
-         const howManyCols = Math.round(viewportWidth / fixedIconPixelWidth),
+         const howManyCols = Math.round(viewportWidth / fixedIconPixelWidth) - 1,
             howManyRows = Math.round(viewportHeight / fixedIconPixelHeight);
 
          const [_, fraction] = (howManyCols / icons.length).toString().split(".");
@@ -35,28 +42,20 @@ export default function AnimatedBackgroundIcon() {
 
    return (
       <>
-         <article class="animated-icon-mosaics absolute min-h-[100dvh] flex select-none cursor-none z-[-1]" aria-hidden>
-            <section class="col-icon-mosaics w-[100vw]">
-               {setMosaics.map((col) => (
-                  <span class="row-icon-mosaics">
-                     {col}
-                  </span>
-               ))}
-            </section>
-            <section class="col-icon-mosaics w-[100vw]">
-               {setMosaics.map((col) => (
-                  <span class="row-icon-mosaics">
-                     {col}
-                  </span>
-               ))}
-            </section>
-            <section class="col-icon-mosaics w-[100vw]">
-               {setMosaics.map((col) => (
-                  <span class="row-icon-mosaics">
-                     {col}
-                  </span>
-               ))}
-            </section>
+         <article class={`animated-icon-mosaics absolute ${heightRefernce ? 'h-[' + heightRefernce + ']' : 'min-h-[100dvh]'} flex select-none cursor-none z-[-1]`} aria-hidden>
+            {
+               ['sec1', 'sec2'].map((sect) => {
+                  return (
+                     <section class="col-icon-mosaics w-[100vw]" key={sect}>
+                        {setMosaics.map((col) => (
+                           <span class="row-icon-mosaics">
+                              {col}
+                           </span>
+                        ))}
+                     </section>
+                  )
+               })
+            }
          </article>
       </>
    );
