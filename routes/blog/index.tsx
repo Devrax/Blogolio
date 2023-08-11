@@ -4,6 +4,7 @@ import { GithubUser } from "@interfaces/GithubUser.ts";
 import AnimatedBackgroundIcon from "@islands/AnimatedBackgroundIcon.tsx";
 import { MarkdownAttributes } from "@interfaces/MarkdownAttributes.ts";
 import { blogHandler } from "./handler.ts";
+import BlogCard from "@islands/BlogCard.tsx";
 
 export const handler: Handlers = blogHandler;
 
@@ -14,6 +15,7 @@ export default function Blog({ data }: PageProps<{ user: GithubUser, mdList: Mar
       description: user?.html_url,
     };
   const markdownList = data.mdList;
+  
 
   return (
     <>
@@ -46,16 +48,7 @@ export default function Blog({ data }: PageProps<{ user: GithubUser, mdList: Mar
         </header>
         <article class="flex justify-center items-center md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
           {
-            markdownList?.map(md => (
-              <div class="min-w-[280px] w-[90%] rounded md:w-[500px]" key={md.title}>
-                <div class="p-2">
-                  <h3 class="text-xl font-bold text-white drop-shadow-2xl">{md.title}</h3>
-                  <span class="text-[0.75rem] font-bold text-white opacity-75">{md.created_at.toLocaleString('en-US', { day: '2-digit', month: 'short', year: '2-digit'})} - {md.author}</span>
-                  <p class="text-white text-sm text-justify">{md.description}..</p>
-                </div>
-                <hr />
-              </div>
-            ))
+            markdownList?.map(md => <BlogCard md={md} />)
           }
         </article>
       </main>

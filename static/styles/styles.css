@@ -56,10 +56,11 @@ video {
 }
 
 html {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
 }
 
 .faded-text::after {
@@ -86,12 +87,12 @@ html {
 
 @media screen and (min-width: 768px) {
   html {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
 @media screen and (min-width: 1300px) {
   html {
-    font-size: 24px;
+    font-size: 20px;
   }
 }

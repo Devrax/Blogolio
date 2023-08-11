@@ -4,5 +4,8 @@
 	"editor.tabSize": 3,
 	"editor.autoIndent": "full",
 	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode"
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[markdown]": {
+		"editor.defaultFormatter": "denoland.vscode-deno"
+	}
 }
