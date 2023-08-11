@@ -20,3 +20,11 @@ export function GithubUserGET() {
 export function GithubUserRepositoriesGET() {
 	return githubFetcherGET(`${githubApiBaseUrl}/users/${gitUserName}/repos`);
 }
+
+export const getGithubUser = async () => {
+	const githubUser: Response = await GithubUserGET();
+	if (githubUser.status === 404) {
+		return null;
+	}
+	return githubUser.json();
+}

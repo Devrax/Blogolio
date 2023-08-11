@@ -1,16 +1,22 @@
+.fake-attributes {
+   font-family: monospace, 'Montserrat', sans-serif;
+}
+
 .fake-attributes .attribute {
-   transition: max-width 500ms ease, opacity 1000ms linear;
+   transition: max-width 1000ms ease, opacity 500ms linear;
    display: inline-block;
    max-width: 0px;
    opacity: 0;
 }
 
 .fake-attributes:hover .attribute {
-   max-width: 70px;
+   transition: max-width 500ms ease, opacity 1000ms linear;
+   max-width: 6rem;
    opacity: 1;
 }
 
 .fake-attributes:active .attribute {
-   max-width: 70px;
+   transition: max-width 500ms ease, opacity 1000ms linear;
+   max-width: 6rem;
    opacity: 1;
 }

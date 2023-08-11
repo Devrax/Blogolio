@@ -1,21 +1,24 @@
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { GithubUserData } from "@interfaces/GithubUser.ts";
-import { handler as homeHandler } from "../../private/HomeHandler.ts";
+import { GithubUser } from "@interfaces/GithubUser.ts";
 import AnimatedBackgroundIcon from "@islands/AnimatedBackgroundIcon.tsx";
-export const handler: Handlers = homeHandler;
+import { MarkdownAttributes } from "@interfaces/MarkdownAttributes.ts";
+import { blogHandler } from "./handler.ts";
 
-export default function Home({ data }: PageProps<GithubUserData | null>) {
-  const { ...user } = (data as GithubUserData) || {},
+export const handler: Handlers = blogHandler;
+
+export default function Blog({ data }: PageProps<{ user: GithubUser, mdList: MarkdownAttributes[]}>) {
+  const { ...user } = (data.user as GithubUser) || {},
     meta = {
       title: user?.login,
       description: user?.html_url,
     };
+  const markdownList = data.mdList;
 
   return (
     <>
       <Head>
-        <title>{'Blog ' +meta.title + ' 🐒'}</title>
+        <title>{'Blog | ' + meta.title + ' 🐒'}</title>
         <meta content={meta.description} name="description" />
         <meta name={user?.name} content="Author name" />
         <meta property="og:title" content={`${user?.name}'s journey as web developer`} />
@@ -30,22 +33,30 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         <link rel="stylesheet" href="/styles/animations/animated-background.css" />
         <link rel="stylesheet" href="/styles/blog/blog.index.css" />
       </Head>
-      <main class="relative overflow-hidden">
-        <AnimatedBackgroundIcon />
-      <header class="p-[16px]">
-        <nav>
-          <ul>
-            <li>
-              <a href="./" class="text-white text-xl font-bold fake-attributes"><span>&lt;{ user?.name } <span class="attribute">to="./"</span> /&gt;</span></a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-        <article class="flex h-[100dvh] justify-center items-center md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
-         <section id="banner-men-working" class="text-white font-bold text-2xl md:text-4xl lg:text-6xl text-center">
-            <h1>👷🏻‍♂️🛑MAN WORKING!🏗️🚧</h1>
-            <h3>Come later</h3>
-         </section>
+      <main>
+        <header class="lg:max-w-[2000px] mb-6 overflow-hidden relative overflow-hidden" fake-ref>
+        <AnimatedBackgroundIcon heightReference="header[fake-ref]" iconsProp={['😎', '👨🏻‍💻', '🐙', '🗿', '💻']} />
+          <nav class="p-4">
+            <ul>
+              <li>
+                <a href="./" class="text-white text-md font-bold fake-attributes">&lt;{user?.name} <span class="attribute">to="./"</span> /&gt;</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <article class="flex justify-center items-center md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
+          {
+            markdownList?.map(md => (
+              <div class="min-w-[280px] w-[90%] rounded md:w-[500px]" key={md.title}>
+                <div class="p-2">
+                  <h3 class="text-xl font-bold text-white drop-shadow-2xl">{md.title}</h3>
+                  <span class="text-[0.75rem] font-bold text-white opacity-75">{md.created_at.toLocaleString('en-US', { day: '2-digit', month: 'short', year: '2-digit'})} - {md.author}</span>
+                  <p class="text-white text-sm text-justify">{md.description}..</p>
+                </div>
+                <hr />
+              </div>
+            ))
+          }
         </article>
       </main>
     </>

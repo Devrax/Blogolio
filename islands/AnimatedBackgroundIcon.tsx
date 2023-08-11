@@ -1,18 +1,21 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 
 interface AnimatedBackgroundIcon {
-   heightRefernce?: number;
-   widthRefernce?: number;
+   heightReference?: string;
+   widthReference?: string;
    iconsProp?: string[]
 }
 
-export default function AnimatedBackgroundIcon({ heightRefernce, widthRefernce, iconsProp }: AnimatedBackgroundIcon) {
+export default function AnimatedBackgroundIcon({ heightReference, widthReference, iconsProp }: AnimatedBackgroundIcon) {
+
+   if(!IS_BROWSER) return <></>
+
+   const getRefHeight = heightReference ? document.querySelector<HTMLDivElement>(heightReference)!.offsetHeight : null,
+         getRefWidth = widthReference ? document.querySelector<HTMLDivElement>(widthReference)!.offsetHeight : null;
    const icons = iconsProp ?? ["🦕", "🚧", "🇩🇴", "📱", "🐒", "🚀", "💻"],
       setBackgroundIcons = (icons: string[]) => {
-         if (!IS_BROWSER) return [];
-         console.log("setBackground");
-         const viewportWidth = widthRefernce ?? document.body.clientWidth,
-            viewportHeight = heightRefernce ?? document.body.clientHeight,
+            const viewportWidth = getRefWidth ?? document.body.clientWidth,
+            viewportHeight = getRefHeight ?? document.body.clientHeight,
             fixedIconPixelWidth = 20,
             fixedIconPixelHeight = 24.5;
 
@@ -42,7 +45,7 @@ export default function AnimatedBackgroundIcon({ heightRefernce, widthRefernce, 
 
    return (
       <>
-         <article class={`animated-icon-mosaics absolute ${heightRefernce ? 'h-[' + heightRefernce + ']' : 'min-h-[100dvh]'} flex select-none cursor-none z-[-1]`} aria-hidden>
+         <article class={`animated-icon-mosaics absolute ${getRefHeight ? 'h-[' + getRefHeight + 'px]' : 'min-h-[100dvh]'} flex select-none cursor-none z-[-1]`} aria-hidden>
             {
                ['sec1', 'sec2'].map((sect) => {
                   return (
