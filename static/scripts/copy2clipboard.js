@@ -6,7 +6,7 @@ document.querySelectorAll('.highlight').forEach(el => {
 
    button.addEventListener('click', async () => {
       await play.play();
-      await navigator.clipboard.writeText(el.innerHTML);
+      await navigator.clipboard.writeText(el.textContent);
       button.textContent = '✅';
       setTimeout(() => {
          button.textContent = '📋'
