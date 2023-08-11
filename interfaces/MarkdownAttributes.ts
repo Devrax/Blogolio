@@ -7,4 +7,5 @@ export type MarkdownAttributes = {
    author: string;
    created_at: dateISOString;
    modified_at: dateISOString;
+   keywords: string;
 }

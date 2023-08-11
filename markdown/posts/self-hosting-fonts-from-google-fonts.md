@@ -3,6 +3,7 @@ pathName: self-hosting-fonts-from-google-fonts
 title: Self-hosting Fonts from Google Fonts
 description: Most Google APIs are infamous for recording user data in some shape or form. The General Data Protection Regulation (GDPR) is the world’s most stringent privacy and security regulation.
 image: https://ucarecdn.com/ef84989b-f7bc-4252-b98b-9c6c7a5b5550/-/preview/938x432/-/quality/smart/-/format/auto/
+keywords: self-hosting Google Fonts, web typography, data privacy, GDPR, font integration, website performance
 author: Rafael Mejia
 created_at: 2023-08-08T02:21:50.400Z
 modified_at: 2023-08-08T02:21:50.400Z

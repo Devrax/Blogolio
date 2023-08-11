@@ -26,6 +26,7 @@ export default async function BlogPost(_: Request, ctx: RouteContext) {
         <title>{post.attrs.title}</title>
         <meta content={post.attrs.description} name="description" />
         <meta name={post.attrs.author} content="Author name" />
+        <meta name="keywords" content={post.attrs.keywords} />
         <meta property="og:title" content={`${post.attrs.title}`} />
         <meta property="og:profile:username" content={post.attrs.author} />
         <meta property="og:url" content={ctx.url.href} />
