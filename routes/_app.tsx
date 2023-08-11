@@ -11,6 +11,7 @@ export default function App({ Component }: AppProps) {
         <link rel="manifest" href="/favicon_io/site.webmanifest" />
         <link rel="stylesheet" href="/styles/styles.css" />
         <link rel="stylesheet" href="/styles/markdown.css" />
+        <meta name="google-site-verification" content="TYIkyMqVikn-0A3PmmOXETZMcDaNiRH_uw9GAIBM1BI" />
       </Head>
       <body class="bg-slate-800 ">
         <Component />
