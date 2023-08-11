@@ -118,6 +118,10 @@
   max-height: 400px;
 }
 
+.markdown img[alt^="cover-"] {
+  max-height: 700px;
+}
+
 /* FOR BLOCKQUOTES */
 
 .markdown blockquote {

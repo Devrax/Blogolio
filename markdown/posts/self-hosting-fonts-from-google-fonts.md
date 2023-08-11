@@ -9,7 +9,7 @@ created_at: 2023-08-08T02:21:50.400Z
 modified_at: 2023-08-08T02:21:50.400Z
 ---
 
-![GDPR-Drake-meme](https://ucarecdn.com/ef84989b-f7bc-4252-b98b-9c6c7a5b5550/-/preview/938x432/-/quality/smart/-/format/auto/)
+![cover-GDPR-Drake-meme](https://ucarecdn.com/ef84989b-f7bc-4252-b98b-9c6c7a5b5550/-/preview/938x432/-/quality/smart/-/format/auto/)
 
 ### Self-hosting Fonts from Google Fonts
 
