@@ -204,3 +204,11 @@
     margin: 32px auto;
   }
 }
+
+@media screen and (min-width: 1024px) {
+
+  .markdown {
+    font-size: 22px;
+  }
+
+}
