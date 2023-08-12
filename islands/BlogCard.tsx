@@ -18,7 +18,7 @@ export default function BlogCard({ md }: { md: MarkdownAttributes }) {
   return (
     <>
       <div
-        class="min-w-[280px] w-[90%] rounded md:w-[500px] active:opacity-75"
+        class="min-w-[280px] w-[90%] rounded md:w-[500px] lg:w-[1024px] active:opacity-75"
         key={md.title}
         id={md.title}
       >

@@ -12,7 +12,8 @@ const getMarkdownPostsList = async (): Promise<MarkdownAttributes[]> => {
      const { attrs } = extract(await Deno.readTextFile(postsFolderPath + "/" + dirEntry.name));
      files.push(attrs as unknown as MarkdownAttributes);
    }
-   return files;
+
+   return files.sort((a, b) => a.created_at.getTime() - b.created_at.getTime());
  }
 
  export const blogHandler: Handlers = {
