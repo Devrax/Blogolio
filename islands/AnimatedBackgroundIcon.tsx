@@ -14,8 +14,8 @@ export default function AnimatedBackgroundIcon({ heightReference, widthReference
          getRefWidth = widthReference ? document.querySelector<HTMLDivElement>(widthReference)!.offsetHeight : null;
    const icons = iconsProp ?? ["🦕", "🚧", "🇩🇴", "📱", "🐒", "🚀", "💻"],
       setBackgroundIcons = (icons: string[]) => {
-            const viewportWidth = getRefWidth ?? document.body.clientWidth,
-            viewportHeight = getRefHeight ?? document.body.clientHeight,
+            const viewportWidth = getRefWidth ?? window.innerWidth,
+            viewportHeight = getRefHeight ?? window.innerHeight,
             fixedIconPixelWidth = 20,
             fixedIconPixelHeight = 24.5;
 

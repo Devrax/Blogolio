@@ -22,7 +22,7 @@ export default function Blog({ data }: PageProps<{ user: GithubUser, mdList: Mar
       <Head>
         <title>{'Blog | ' + meta.title + ' 🐒'}</title>
         <meta content={meta.description} name="description" />
-        <meta name={user?.name} content="Author name" />
+        <meta content={user?.name} name="author" />
         <meta property="og:title" content={`${user?.name}'s journey as web developer`} />
         <meta property="og:type" content={`${user?.name}'s blog entries`} />
         <meta property="og:url" content="https://devrafx.deno.dev/" />
