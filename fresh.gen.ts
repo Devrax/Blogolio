@@ -8,6 +8,7 @@ import * as $2 from "./routes/blog/[name].tsx";
 import * as $3 from "./routes/blog/handler.ts";
 import * as $4 from "./routes/blog/index.tsx";
 import * as $5 from "./routes/index.tsx";
+import * as $6 from "./routes/privacy-policy.tsx";
 import * as $$0 from "./islands/AnimatedBackgroundIcon.tsx";
 import * as $$1 from "./islands/BlogCard.tsx";
 import * as $$2 from "./islands/SideProfile.tsx";
@@ -20,6 +21,7 @@ const manifest = {
     "./routes/blog/handler.ts": $3,
     "./routes/blog/index.tsx": $4,
     "./routes/index.tsx": $5,
+    "./routes/privacy-policy.tsx": $6,
   },
   islands: {
     "./islands/AnimatedBackgroundIcon.tsx": $$0,
