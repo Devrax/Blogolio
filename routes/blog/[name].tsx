@@ -1,7 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { RouteContext } from "$fresh/server.ts";
 import { GithubUser } from "@interfaces/GithubUser.ts";
-import AnimatedBackgroundIcon from "@islands/AnimatedBackgroundIcon.tsx";
 import { MarkdownAttributes } from "@interfaces/MarkdownAttributes.ts";
 import { getGithubUser } from "../../private/external-apis/github.ts";
 import extract from "$std/front_matter/yaml.ts";
@@ -42,7 +41,6 @@ export default async function BlogPost(_: Request, ctx: RouteContext) {
       </Head>
       <main>
         <header class="lg:max-w-[2000px] mb-6 overflow-hidden relative overflow-hidden" fake-ref>
-        <AnimatedBackgroundIcon heightReference="header[fake-ref]" iconsProp={['📄', '🦺', '🐐', '🚀']} />
           <nav class="p-4">
             <ul>
               <li>

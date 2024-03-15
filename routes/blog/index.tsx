@@ -1,7 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { GithubUser } from "@interfaces/GithubUser.ts";
-import AnimatedBackgroundIcon from "@islands/AnimatedBackgroundIcon.tsx";
 import { MarkdownAttributes } from "@interfaces/MarkdownAttributes.ts";
 import { blogHandler } from "./handler.ts";
 import BlogCard from "@islands/BlogCard.tsx";
@@ -37,7 +36,6 @@ export default function Blog({ data }: PageProps<{ user: GithubUser, mdList: Mar
       </Head>
       <main>
         <header class="lg:max-w-[2000px] mb-6 overflow-hidden relative overflow-hidden" fake-ref>
-        <AnimatedBackgroundIcon heightReference="header[fake-ref]" iconsProp={['😎', '👨🏻‍💻', '🐙', '🗿', '💻']} />
           <nav class="p-4">
             <ul>
               <li>

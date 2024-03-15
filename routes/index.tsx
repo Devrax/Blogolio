@@ -3,7 +3,6 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { GithubUserData } from "@interfaces/GithubUser.ts";
 import { handler as homeHandler } from "../private/HomeHandler.ts";
 import SideProfiler from "../islands/SideProfile.tsx";
-import AnimatedBackgroundIcon from "../islands/AnimatedBackgroundIcon.tsx";
 export const handler: Handlers = homeHandler;
 
 export default function Home({ data }: PageProps<GithubUserData | null>) {
@@ -32,7 +31,6 @@ export default function Home({ data }: PageProps<GithubUserData | null>) {
         <link rel="stylesheet" href="/styles/animations/animated-background.css" />
       </Head>
       <main class="relative overflow-hidden">
-        <AnimatedBackgroundIcon />
         <article class="flex h-[100dvh] flex-col md:flex-row md:flex-row-reverse lg:max-w-[2000px] lg:mx-auto">
           <section
             id="user-information"
